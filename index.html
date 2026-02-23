@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italys Wine — Dia da Mulher 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--mag:#B01E5A;--mag-d:#7A0F3A;--mag-l:#E0497A;--rosa:#F0799A;--rosa-p:#F5C0D0;--vinho:#5C0A28;--off:#FDF8F9;--texto:#2A1018;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:#fff;color:var(--texto);overflow-x:hidden;}
+
+/* NAV */
+.nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;gap:9px;}
+.ndot{width:6px;height:6px;border-radius:50%;background:var(--mag);opacity:.25;cursor:pointer;transition:all .3s;}
+.ndot.on{opacity:1;transform:scale(1.7);}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease;}
+.rv.on{opacity:1;transform:none;}
+
+/* ══ CAPA ══ */
+.capa{min-height:100vh;background:var(--mag-d);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:80px 70px;}
+.capa-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
+.capa-c{position:relative;z-index:2;max-width:580px;}
+.c-tag{font-size:11px;letter-spacing:5px;color:rgba(255,255,255,.65);text-transform:uppercase;margin-bottom:22px;}
+.c-t1{font-family:'Playfair Display',serif;font-size:clamp(66px,9vw,116px);font-weight:900;color:#fff;line-height:.93;text-transform:uppercase;letter-spacing:-3px;display:block;}
+.c-sc{font-family:'Dancing Script',cursive;font-size:clamp(72px,10vw,132px);color:var(--rosa);line-height:1;display:block;margin-top:-6px;}
+.c-sub{font-size:14px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.9;margin-top:26px;}
+.c-logo{position:absolute;bottom:40px;right:60px;z-index:2;font-family:'Playfair Display',serif;font-size:13px;letter-spacing:9px;color:rgba(255,255,255,.28);text-transform:uppercase;}
+
+/* ══ EDITORIAL ══ */
+.editorial{display:grid;grid-template-columns:55% 45%;min-height:78vh;}
+.ed-esq{background:var(--off);padding:90px 65px;display:flex;flex-direction:column;justify-content:center;}
+.ed-dir{background:var(--vinho);padding:90px 55px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+.s-num{font-size:10px;letter-spacing:5px;color:var(--mag-l);text-transform:uppercase;margin-bottom:24px;}
+.ed-h{font-family:'Playfair Display',serif;font-size:clamp(30px,3.5vw,48px);font-weight:700;color:var(--vinho);line-height:1.15;margin-bottom:4px;}
+.ed-sc{font-family:'Dancing Script',cursive;font-size:clamp(42px,5vw,66px);color:var(--mag);display:block;line-height:1;margin-bottom:26px;}
+.ln{width:46px;height:3px;background:var(--mag-l);border-radius:2px;margin-bottom:24px;}
+.ed-p{font-size:13.5px;font-weight:300;line-height:2.1;color:#666;max-width:400px;}
+.dir-l{font-size:9px;letter-spacing:5px;color:var(--rosa);text-transform:uppercase;margin-bottom:26px;}
+.dir-q{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:rgba(255,255,255,.9);line-height:1.78;padding-left:22px;border-left:2px solid var(--rosa);margin-bottom:30px;}
+.dir-a{font-size:10px;letter-spacing:3px;color:var(--rosa);text-transform:uppercase;}
+.dir-c{font-size:11px;color:rgba(255,255,255,.28);margin-top:4px;}
+.bq{position:absolute;top:-50px;left:20px;font-family:'Playfair Display',serif;font-size:280px;color:rgba(255,255,255,.03);line-height:1;pointer-events:none;z-index:0;}
+
+/* ══ CORPORATIVO ══ */
+.corp{background:var(--texto);padding:96px 70px;}
+.corp-in{max-width:1100px;margin:0 auto;}
+.corp-g{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;margin-bottom:64px;}
+.corp-h{font-family:'Playfair Display',serif;font-size:clamp(36px,4vw,56px);font-weight:900;color:#fff;line-height:1.05;text-transform:uppercase;}
+.corp-h em{display:block;font-family:'Dancing Script',cursive;font-size:1.35em;text-transform:none;font-weight:700;color:var(--rosa);line-height:.88;}
+.corp-p{font-size:13.5px;font-weight:300;line-height:2.05;color:rgba(255,255,255,.52);}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:52px;}
+.nb{padding:44px 24px;text-align:center;}
+.nb:nth-child(1){background:var(--mag);}
+.nb:nth-child(2){background:var(--mag-d);}
+.nb:nth-child(3){background:var(--mag-l);}
+.nb-v{font-family:'Playfair Display',serif;font-size:56px;font-weight:900;color:#fff;line-height:1;margin-bottom:8px;}
+.nb-l{font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.5);text-transform:uppercase;}
+.dest{background:var(--vinho);padding:52px 60px;position:relative;}
+.dest::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--rosa),var(--mag-l),transparent);}
+.dest-q{font-family:'Playfair Display',serif;font-size:clamp(17px,2.1vw,26px);font-style:italic;color:rgba(255,255,255,.92);line-height:1.68;margin-bottom:18px;max-width:720px;}
+.dest-a{font-size:10px;letter-spacing:4px;color:var(--rosa);text-transform:uppercase;}
+
+/* ══ ENTREVISTAS HEADER ══ */
+.ent-h{padding:96px 70px 56px;text-align:center;}
+.ent-tag{font-size:10px;letter-spacing:5px;color:var(--mag-l);text-transform:uppercase;margin-bottom:14px;}
+.ent-titulo{font-family:'Playfair Display',serif;font-size:clamp(44px,6vw,80px);font-weight:900;color:var(--vinho);text-transform:uppercase;line-height:.95;}
+.ent-sc{font-family:'Dancing Script',cursive;font-size:clamp(52px,7vw,100px);color:var(--mag);display:block;line-height:1.05;}
+.ent-pill{display:inline-block;margin-top:18px;font-size:10px;letter-spacing:4px;color:rgba(176,30,90,.45);text-transform:uppercase;border:1px solid rgba(176,30,90,.18);padding:8px 20px;}
+
+/* ══ CARDS ══ */
+.cw{background:var(--off);}
+.card{display:grid;grid-template-columns:36% 64%;border-bottom:1px solid rgba(176,30,90,.07);}
+.card:nth-child(even){background:#fff;}
+.card:nth-child(even) .cf{order:2;}
+.card:nth-child(even) .ct{order:1;}
+
+/* Slot de foto */
+.cf{position:relative;overflow:hidden;min-height:460px;display:flex;flex-direction:column;justify-content:flex-end;}
+.foto-slot{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(135deg,#c9a0b4,#a06080);
+}
+.foto-slot-icon{opacity:.3;}
+.foto-slot-label{font-size:9px;letter-spacing:3px;color:#fff;text-transform:uppercase;opacity:.5;}
+/* quando tiver foto real: .cf img { position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0; } */
+.foto-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(92,10,40,.78) 0%,rgba(92,10,40,.08) 55%,transparent 100%);z-index:1;}
+.foto-num{position:absolute;top:26px;left:26px;z-index:2;font-size:9px;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;}
+.card-id{position:relative;z-index:2;padding:28px 30px;}
+.card-nome{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:5px;}
+.card-meta{font-size:9px;letter-spacing:2px;color:var(--rosa-p);text-transform:uppercase;line-height:1.9;}
+.card-vinho{position:absolute;bottom:28px;right:20px;z-index:2;font-size:8.5px;letter-spacing:1px;color:rgba(255,255,255,.5);max-width:115px;text-align:right;line-height:1.5;}
+
+/* Cores do slot por card */
+.card:nth-child(1) .foto-slot{background:linear-gradient(135deg,#B01E5A,#7A0F3A);}
+.card:nth-child(2) .foto-slot{background:linear-gradient(135deg,#6A0A2E,#9C1A48);}
+.card:nth-child(3) .foto-slot{background:linear-gradient(135deg,#8B1540,#C4246A);}
+.card:nth-child(4) .foto-slot{background:linear-gradient(135deg,#5C0A28,#8B1540);}
+.card:nth-child(5) .foto-slot{background:linear-gradient(135deg,#9C1A48,#B01E5A);}
+.card:nth-child(6) .foto-slot{background:linear-gradient(135deg,#7A0F3A,#5C0A28);}
+.card:nth-child(7) .foto-slot{background:linear-gradient(135deg,#C4246A,#9C1A48);}
+.card:nth-child(8) .foto-slot{background:linear-gradient(135deg,#8B1540,#7A0F3A);}
+.card:nth-child(9) .foto-slot{background:linear-gradient(135deg,#6A0A2E,#B01E5A);}
+.card:nth-child(10) .foto-slot{background:linear-gradient(135deg,#B01E5A,#5C0A28);}
+.card:nth-child(11) .foto-slot{background:linear-gradient(135deg,#5C0A28,#C4246A);}
+.card:nth-child(12) .foto-slot{background:linear-gradient(135deg,#9C1A48,#6A0A2E);}
+.card:nth-child(13) .foto-slot{background:linear-gradient(135deg,#C4246A,#7A0F3A);}
+.card:nth-child(14) .foto-slot{background:linear-gradient(135deg,#7A0F3A,#9C1A48);}
+.card:nth-child(15) .foto-slot{background:linear-gradient(135deg,#8B1540,#B01E5A);}
+.card:nth-child(16) .foto-slot{background:linear-gradient(135deg,#6A0A2E,#8B1540);}
+.card:nth-child(17) .foto-slot{background:linear-gradient(135deg,#B01E5A,#6A0A2E);}
+.card:nth-child(18) .foto-slot{background:linear-gradient(135deg,#5C0A28,#9C1A48);}
+.card:nth-child(19) .foto-slot{background:linear-gradient(135deg,#9C1A48,#C4246A);}
+.card:nth-child(20) .foto-slot{background:linear-gradient(135deg,#C4246A,#5C0A28);}
+.card:nth-child(21) .foto-slot{background:linear-gradient(135deg,#7A0F3A,#B01E5A);}
+.card:nth-child(22) .foto-slot{background:linear-gradient(135deg,#8B1540,#6A0A2E);}
+.card:nth-child(23) .foto-slot{background:linear-gradient(135deg,#B01E5A,#9C1A48);}
+.card:nth-child(24) .foto-slot{background:linear-gradient(135deg,#6A0A2E,#C4246A);}
+.card:nth-child(25) .foto-slot{background:linear-gradient(135deg,#9C1A48,#5C0A28);}
+
+/* Área texto */
+.ct{padding:50px 54px;display:flex;flex-direction:column;justify-content:center;}
+.p-l{font-size:9px;letter-spacing:4px;color:var(--mag-l);text-transform:uppercase;margin-bottom:9px;margin-top:24px;}
+.p-l:first-child{margin-top:0;}
+.p-r{font-family:'Playfair Display',serif;font-size:16px;font-style:italic;line-height:1.85;color:var(--texto);}
+.raps{margin-top:30px;padding-top:24px;border-top:1px solid rgba(176,30,90,.1);display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.rl{font-size:9px;letter-spacing:3px;color:var(--mag-l);text-transform:uppercase;margin-bottom:3px;}
+.rr{font-family:'Playfair Display',serif;font-size:13.5px;font-style:italic;color:var(--vinho);line-height:1.5;}
+
+/* ══ SEÇÃO VINHOS ══ */
+.enq{background:var(--mag-d);padding:96px 70px;position:relative;overflow:hidden;}
+.enq-flores{position:absolute;pointer-events:none;z-index:0;}
+.enq-in{max-width:940px;margin:0 auto;text-align:center;position:relative;z-index:2;}
+.enq-tag{font-size:9px;letter-spacing:6px;color:var(--rosa);text-transform:uppercase;margin-bottom:16px;}
+.enq-h{font-family:'Playfair Display',serif;font-size:clamp(40px,5.5vw,70px);font-weight:900;color:#fff;text-transform:uppercase;line-height:.95;margin-bottom:4px;}
+.enq-sc{font-family:'Dancing Script',cursive;font-size:clamp(52px,6.5vw,86px);color:var(--rosa);display:block;line-height:1.1;margin-bottom:8px;}
+.enq-sub{font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.32);margin-bottom:52px;}
+
+/* ══ PODIUM VINHOS ══ */
+.podium{
+  display:grid;
+  grid-template-columns:1fr 1.15fr 1fr;
+  gap:3px;
+  max-width:900px;
+  margin:0 auto;
+  align-items:end;
+}
+.pod-card{
+  position:relative;
+  display:flex;flex-direction:column;align-items:center;
+  background:rgba(255,255,255,.06);
+  padding:36px 22px 40px;
+  border:1px solid rgba(255,255,255,.06);
+  transition:transform .3s;
+}
+.pod-card:hover{transform:translateY(-5px);}
+.pod-1{background:rgba(240,121,154,.12);border-color:rgba(240,121,154,.3);}
+.pod-2{background:rgba(255,255,255,.04);}
+.pod-3{background:rgba(255,255,255,.04);}
+.pod-coroa{position:absolute;top:-24px;left:50%;transform:translateX(-50%);font-size:28px;}
+.pod-rank{
+  font-family:'Playfair Display',serif;
+  font-size:11px;letter-spacing:4px;
+  color:var(--rosa);text-transform:uppercase;
+  margin-bottom:20px;
+}
+.pod-1 .pod-rank{color:#fff;}
+
+/* Slot foto produto */
+.pod-foto-wrap{width:100%;margin-bottom:24px;}
+.pod-foto{
+  width:100%;aspect-ratio:3/4;
+  background:rgba(255,255,255,.06);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;border:1px dashed rgba(255,255,255,.15);
+}
+/* quando tiver foto real: .pod-foto img{width:100%;height:100%;object-fit:cover;} */
+
+.pod-votos{font-size:9px;letter-spacing:3px;color:var(--rosa);text-transform:uppercase;margin-bottom:8px;}
+.pod-nome{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:4px;text-align:center;}
+.pod-tipo{font-size:9px;letter-spacing:3px;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:14px;}
+.pod-desc{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:rgba(255,255,255,.55);line-height:1.65;text-align:center;}
+
+@media(max-width:820px){
+  .podium{grid-template-columns:1fr;max-width:380px;}
+  .pod-1{order:-1;}
+}
+
+/* FOOTER */
+footer{background:var(--vinho);padding:60px;text-align:center;}
+.ft-logo{font-family:'Playfair Display',serif;font-size:24px;letter-spacing:12px;color:var(--rosa-p);text-transform:uppercase;opacity:.45;margin-bottom:10px;}
+.ft-sub{font-size:10px;letter-spacing:4px;color:rgba(255,255,255,.18);text-transform:uppercase;}
+.ft-d{margin-top:30px;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.1);}
+
+/* RESPONSIVE */
+@media(max-width:820px){
+  .editorial,.card,.corp-g,.nums,.vinhos{grid-template-columns:1fr;}
+  .card:nth-child(even) .cf,.card:nth-child(even) .ct{order:unset;}
+  .capa,.corp,.ent-h,.enq{padding:60px 28px;}
+  .ed-esq,.ed-dir,.ct{padding:50px 26px;}
+  .raps{grid-template-columns:1fr;}
+  .dest{padding:40px 26px;}
+  .cf{min-height:300px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="ndot on" onclick="ir('s-capa')"></div>
+  <div class="ndot" onclick="ir('s-ed')"></div>
+  <div class="ndot" onclick="ir('s-corp')"></div>
+  <div class="ndot" onclick="ir('s-ent')"></div>
+  <div class="ndot" onclick="ir('s-enq')"></div>
+</nav>
+
+<!-- CAPA -->
+<section id="s-capa" class="capa">
+  <svg class="capa-bg" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <g opacity=".28">
+      <ellipse cx="900" cy="60" rx="160" ry="240" fill="#6A0A2E" transform="rotate(-32 900 60)"/>
+      <ellipse cx="820" cy="10" rx="125" ry="200" fill="#8B1540" transform="rotate(-8 820 10)"/>
+      <ellipse cx="960" cy="240" rx="115" ry="185" fill="#9C1A48" transform="rotate(-54 960 240)"/>
+      <ellipse cx="730" cy="110" rx="85" ry="145" fill="#6A0A2E" transform="rotate(9 730 110)"/>
+      <circle cx="870" cy="160" r="32" fill="#5C0A28"/>
+      <path d="M730 340 Q800 210 870 160" stroke="#5C0A28" stroke-width="4" fill="none" opacity=".5"/>
+      <circle cx="710" cy="195" r="5" fill="#F0799A" opacity=".6"/>
+    </g>
+    <g opacity=".22">
+      <ellipse cx="30" cy="920" rx="170" ry="250" fill="#7A0F3A" transform="rotate(22 30 920)"/>
+      <ellipse cx="170" cy="1000" rx="135" ry="210" fill="#8B1540" transform="rotate(44 170 1000)"/>
+      <ellipse cx="-15" cy="770" rx="105" ry="175" fill="#9C1A48" transform="rotate(-14 -15 770)"/>
+      <circle cx="75" cy="860" r="30" fill="#5C0A28"/>
+      <circle cx="270" cy="880" r="5" fill="#F0799A" opacity=".5"/>
+    </g>
+    <ellipse cx="600" cy="950" rx="95" ry="145" fill="#8B1540" opacity=".13" transform="rotate(-38 600 950)"/>
+  </svg>
+  <div class="capa-c rv">
+    <p class="c-tag">Edição Especial · 8 de Março de 2025</p>
+    <span class="c-t1">Dia da</span>
+    <span class="c-t1">Mulher</span>
+    <span class="c-sc">Italys</span>
+    <p class="c-sub">Histórias que fermentam.<br>Vozes que brindam.</p>
+  </div>
+  <p class="c-logo">Italys Wine</p>
+</section>
+
+<!-- EDITORIAL -->
+<section id="s-ed" class="editorial">
+  <div class="ed-esq rv">
+    <p class="s-num">02 — Editorial de Abertura</p>
+    <h2 class="ed-h">Ser protagonista<br>começa por</h2>
+    <span class="ed-sc">ser ouvida</span>
+    <div class="ln"></div>
+    <p class="ed-p">Este não é um projeto de vitrine. É um espaço construído para que a voz de cada mulher que faz a Italys Wine acontecer ecoe com a força que ela carrega. Aqui, cada trajetória é uma safra única — moldada pelo tempo, pela coragem e pela essência de quem somos. Celebramos não apenas o dia, mas a história por trás de cada nome.</p>
+  </div>
+  <div class="ed-dir rv">
+    <span class="bq">"</span>
+    <p class="dir-l">Palavra da Direção</p>
+    <blockquote class="dir-q">"Quando olhamos para dentro da Italys, enxergamos mais do que os vinhos que movemos — vemos as pessoas que nos fazem crescer. Cada mulher aqui carrega uma história de escolha, de coragem e de pertencimento. Hoje, essas histórias são o centro da nossa narrativa."</blockquote>
+    <p class="dir-a">Direção · Italys Wine</p>
+    <p class="dir-c">Italy's Wine · 2025</p>
+  </div>
+</section>
+
+<!-- CORPORATIVO -->
+<section id="s-corp" class="corp">
+  <div class="corp-in">
+    <div class="corp-g rv">
+      <div>
+        <p class="s-num" style="color:var(--rosa);">03 — Voz do Corporativo</p>
+        <h2 class="corp-h">O que a<br><em>Italys diz</em><br>sobre suas<br>mulheres</h2>
+      </div>
+      <p class="corp-p">Diversidade não é tendência. É estratégia. É resultado. Dentro da Italys Wine, a presença feminina em diferentes esferas — do campo comercial às coordenações — reflete uma cultura que enxerga no equilíbrio humano a sua maior vantagem competitiva.<br><br>Nesta edição, as colaboradoras falam com a própria voz. 25 mulheres. 25 histórias. Um único propósito: mostrar que protagonismo feminino não é slogan — é o dia a dia da Italys Wine.</p>
+    </div>
+    <div class="nums rv">
+      <div class="nb"><div class="nb-v">27</div><div class="nb-l">Vozes nesta edição</div></div>
+      <div class="nb"><div class="nb-v">7+</div><div class="nb-l">Estados representados</div></div>
+      <div class="nb"><div class="nb-v">15+</div><div class="nb-l">Anos de maior tempo de casa</div></div>
+    </div>
+    <div class="dest rv">
+      <p class="dest-q">"A humanização faz toda a diferença na vida das pessoas aqui. Decidi crescer e me deixar moldar naquilo que é necessário."</p>
+      <p class="dest-a">— Eugilenia Marinho · Analista de RH · Matriz SC</p>
+    </div>
+  </div>
+</section>
+
+<!-- ENTREVISTAS HEADER -->
+<section id="s-ent">
+  <div class="ent-h rv">
+    <p class="ent-tag">04 — As Vozes da Italys</p>
+    <h2 class="ent-titulo">Cada mulher,<span class="ent-sc">uma safra</span></h2>
+    <span class="ent-pill">27 colaboradoras · Brasil &amp; Itália</span>
+  </div>
+
+  <div class="cw">
+
+<!-- ICON SVG p/ slot de foto (mesmo em todos) -->
+
+<!-- 01 VIVIANE -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">01 · Rio de Janeiro</span>
+    <div class="card-id">
+      <p class="card-nome">Viviane Martins Laranjeiras</p>
+      <p class="card-meta">Demonstradora · RJ · 2 a 5 anos</p>
+    </div>
+    <span class="card-vinho">🍷 Primitivo di Manduria Reserva</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"Maravilhosa. Fiquei mais responsável, mais mulher."</p>
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"É amadurecer, estudar mais, se dedicar — e mostrar que nós mulheres podemos estar onde quisermos."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Sempre dar o melhor de mim</p></div>
+      <div><p class="rl">Um aprendizado</p><p class="rr">Estar sempre estudando sobre os vinhos</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 02 RAFAELA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">02 · Minas Gerais</span>
+    <div class="card-id">
+      <p class="card-nome">Rafaela Tamiris Cruz</p>
+      <p class="card-meta">Promotora de Vendas · MG · Até 2 anos</p>
+    </div>
+    <span class="card-vinho">🥂 Whay Not!</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"Me sinto privilegiada — o carinho com que a empresa trata as mulheres e o respeito que existe aqui."</p>
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"Hoje posso me considerar uma mulher determinada, confiante — e aceito os desafios impostos."</p>
+    <div class="raps">
+      <div><p class="rl">Uma decisão</p><p class="rr">Aproveitar ao máximo os ensinamentos que a empresa oferece</p></div>
+      <div><p class="rl">Um reconhecimento</p><p class="rr">Pela dedicação e fidelização dos meus clientes</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 03 TAMARA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">03 · Rio de Janeiro</span>
+    <div class="card-id">
+      <p class="card-nome">Tamara de Siqueira Alexandre</p>
+      <p class="card-meta">Promotora · RJ · Até 2 anos</p>
+    </div>
+    <span class="card-vinho">🍷 Primitivo di Manduria Reserva</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Algo mudou na sua trajetória?</p>
+    <p class="p-r">"A empresa me acolheu no momento mais delicado da vida — não me tratou apenas como funcionária, mas como ser humano."</p>
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"São mulheres se sentindo importantes, com a palavra ouvida quando necessário. Mostrando que podemos estar onde quisermos."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Possibilidade de começar a faculdade com incentivo da empresa</p></div>
+      <div><p class="rl">Um aprendizado</p><p class="rr">"Juntos somos mais fortes"</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 04 ELISÂNGELA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">04 · Rio de Janeiro · 10 a 15 anos</span>
+    <div class="card-id">
+      <p class="card-nome">Elisângela Maria da Silva</p>
+      <p class="card-meta">Promotora de Vendas · RJ · 10 a 15 anos</p>
+    </div>
+    <span class="card-vinho">🍷 Contessa Carola Negroamaro</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"Me sinto feliz, completa e realizada!"</p>
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"Foi aqui que consegui realizar o sonho da compra do meu apartamento — e conquistar outros sonhos."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">A compra do meu apartamento</p></div>
+      <div><p class="rl">Uma decisão</p><p class="rr">Mudar de área e entrar no mundo dos vinhos</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 05 EUGILENIA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">05 · Santa Catarina · Matriz</span>
+    <div class="card-id">
+      <p class="card-nome">Eugilenia Marinho da Silva</p>
+      <p class="card-meta">Analista de RH · SC · Até 2 anos</p>
+    </div>
+    <span class="card-vinho">🌸 Moscato Rosé Primore</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"Me sinto privilegiada, respeitada e valorizada."</p>
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"Desde a minha formação não havia tido a oportunidade de atuar na minha área. Aqui tenho crescido muito como ser humano e como profissional."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Ajudei meu esposo na compra do nosso carro este ano</p></div>
+      <div><p class="rl">Um reconhecimento</p><p class="rr">Minha promoção para Analista de RH</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 06 ANDRESSA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">06 · Santa Catarina</span>
+    <div class="card-id">
+      <p class="card-nome">Andressa Moralles Morais</p>
+      <p class="card-meta">Aux. Administrativo · SC · Até 2 anos</p>
+    </div>
+    <span class="card-vinho">🌸 Moscato Dolce Primore Rosé</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"A empresa realmente entrega tudo que diz — não é da boca pra fora. E isso é o ponto principal que faz os colaboradores terem orgulho de onde trabalham."</p>
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"As mulheres trazem escuta, cuidado e afeto em todos os momentos — e isso enriquece a empresa como um todo."</p>
+    <div class="raps">
+      <div><p class="rl">Uma decisão</p><p class="rr">Buscar uma empresa alinhada com meus objetivos — valeu a espera</p></div>
+      <div><p class="rl">Um reconhecimento</p><p class="rr">Pelo esforço e dedicação nas atividades diárias</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 07 FRANCINE -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">07 · Santa Catarina</span>
+    <div class="card-id">
+      <p class="card-nome">Francine Costa da Cunha</p>
+      <p class="card-meta">Supervisora de Faturamento · SC · 2 a 5 anos</p>
+    </div>
+    <span class="card-vinho">🌸 Moscato Rosé Primore</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"É um ambiente profissional, respeitoso e colaborativo — onde posso aprender, crescer e ser reconhecida pelo meu trabalho."</p>
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"Amadureci muito profissionalmente. Ganhei mais confiança e passei a enxergar meu potencial com mais clareza."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Me formar na faculdade — fruto de muito esforço</p></div>
+      <div><p class="rl">Uma decisão</p><p class="rr">Priorizar meu crescimento pessoal e profissional</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 08 FERNANDA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">08 · Santa Catarina</span>
+    <div class="card-id">
+      <p class="card-nome">Fernanda S. Brandão Bandeira</p>
+      <p class="card-meta">Assistente de Faturamento · SC · Até 2 anos</p>
+    </div>
+    <span class="card-vinho">🥂 Espumante Primore</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"Me sinto respeitada, valorizada e com espaço para crescer. Um ambiente que incentiva a troca, o aprendizado e reconhece o potencial de cada pessoa."</p>
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"É ter espaço para participação, desenvolvimento e reconhecimento — de forma constante e real."</p>
+    <div class="raps">
+      <div><p class="rl">Um aprendizado</p><p class="rr">Manter a qualidade mesmo sob pressão</p></div>
+      <div><p class="rl">Um reconhecimento</p><p class="rr">Pela qualidade e pela antecipação de erros no faturamento</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 09 TEREZA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">09 · Paraná · 10 a 15 anos</span>
+    <div class="card-id">
+      <p class="card-nome">Tereza Cristina Camargo Serrato</p>
+      <p class="card-meta">Representante Comercial · PR · 10 a 15 anos</p>
+    </div>
+    <span class="card-vinho">🍷 Amarone Corte Bra Riserva</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"Me aperfeiçoando cada ano que passa a trabalhar com vinhos do mundo todo."</p>
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"Um papel muito significativo — construído com dedicação e muito conhecimento acumulado ao longo dos anos."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Placa recebida pela empresa</p></div>
+      <div><p class="rl">Um aprendizado</p><p class="rr">Lidar com os desafios da profissão</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 10 ROBERTA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">10 · Rio de Janeiro</span>
+    <div class="card-id">
+      <p class="card-nome">Roberta Matos Alves dos Reis</p>
+      <p class="card-meta">Promotora de Vendas · RJ · 2 a 5 anos</p>
+    </div>
+    <span class="card-vinho">🥂 Why Not</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"Realizada profissionalmente."</p>
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"Pude dar aos meus filhos e a mim mesma uma vida mais digna. Levei pra casa o grande aprendizado de uma empresa totalmente humanizada."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Minha moto — hoje minha companheira de trabalho</p></div>
+      <div><p class="rl">Um aprendizado</p><p class="rr">Sempre podemos melhorar</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 11 SIBELI -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">11 · Santa Catarina</span>
+    <div class="card-id">
+      <p class="card-nome">Sibeli Borba</p>
+      <p class="card-meta">Consultora de Gestão Estratégica · SC · 2 a 5 anos</p>
+    </div>
+    <span class="card-vinho">🥂 Why Not?</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"As mulheres ocupam espaços de protagonismo, participam das decisões e contribuem diretamente para a construção da cultura e da identidade da empresa."</p>
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"Minha percepção sobre relações de trabalho se ampliou. Sou integrada à dinâmica organizacional com relações pautadas pelo respeito, confiança e senso de pertencimento."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Minha casa</p></div>
+      <div><p class="rl">Um reconhecimento</p><p class="rr">Prêmio Ser Humano — ABRH-SC (2024, 2025)</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 12 ROSÂNGELA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">12 · Belo Horizonte · MG</span>
+    <div class="card-id">
+      <p class="card-nome">Rosângela Martins de Souza</p>
+      <p class="card-meta">Supervisora de Merchandising · MG · 5 a 10 anos</p>
+    </div>
+    <span class="card-vinho">🍷 Amarone</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"Muito grata. Aprendo todos os dias com todos da empresa. Tenho orgulho de contribuir para o crescimento de algo que valoriza qualidade e compromisso."</p>
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"A empresa me mostrou que podemos ir muito além do que pensamos. Me tornei mais madura, confiante e disciplinada."</p>
+    <div class="raps">
+      <div><p class="rl">Uma decisão</p><p class="rr">Acreditar em mim e agarrar as oportunidades</p></div>
+      <div><p class="rl">Um reconhecimento</p><p class="rr">Dedicação e amor pelo que faço geram crescimento</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 13 AMANDA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">13 · Minas Gerais</span>
+    <div class="card-id">
+      <p class="card-nome">Amanda Priscila de Souza Lopes</p>
+      <p class="card-meta">Promotora · MG · Até 2 anos</p>
+    </div>
+    <span class="card-vinho">🥂 Why Not</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"A Italys contribuiu com meu amadurecimento e a cuidar mais da minha imagem — me valorizar como mulher e profissional em qualquer lugar que eu vá."</p>
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"Faça o melhor — você é espelho para alguém. Mesmo que essa pessoa não fale, há sempre alguém se inspirando em você."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Sustento minha família — sou mãe solo de duas crianças</p></div>
+      <div><p class="rl">Uma decisão</p><p class="rr">Estudar este ano</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 14 LILIAN -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">14 · Minas Gerais</span>
+    <div class="card-id">
+      <p class="card-nome">Lilian Santos</p>
+      <p class="card-meta">Promotora de Vendas · MG · 2 a 5 anos</p>
+    </div>
+    <span class="card-vinho">🍷 Brunello di Montalcino Riserva</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"Me sinto respeitada, valorizada e com espaço para me posicionar — um ambiente onde posso contribuir de forma ativa e fortalecer minha confiança como mulher."</p>
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"Ampliei minha visão profissional, desenvolvi maturidade e senso de comprometimento. Evoluí na forma de lidar com desafios e trabalho em equipe."</p>
+    <div class="raps">
+      <div><p class="rl">Um aprendizado</p><p class="rr">Constância e postura profissional fazem diferença</p></div>
+      <div><p class="rl">Uma decisão</p><p class="rr">Abraçar os desafios com mais responsabilidade</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 15 ANGELA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">15 · Minas Gerais</span>
+    <div class="card-id">
+      <p class="card-nome">Angela Carla de Castilho</p>
+      <p class="card-meta">Promotora de Vendas · MG · Até 2 anos</p>
+    </div>
+    <span class="card-vinho">🍷 Primitivo</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"Me sinto orgulhosa em contribuir com minhas experiências."</p>
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"Sensibilidade. Trabalhar em equipe transforma desafios em conquistas — e a mulher sabe fazer isso como ninguém."</p>
+    <div class="raps">
+      <div><p class="rl">Uma decisão</p><p class="rr">Assumir novos desafios para crescer</p></div>
+      <div><p class="rl">Um reconhecimento</p><p class="rr">Fazer diferença no dia a dia</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 16 BRUNA MIRANDA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">16 · Santa Catarina</span>
+    <div class="card-id">
+      <p class="card-nome">Bruna Miranda Machado</p>
+      <p class="card-meta">Assistente de Escrita Fiscal · SC · Até 2 anos</p>
+    </div>
+    <span class="card-vinho">🌸 Espumante Rosé Moscato Primore</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"Entrei como auxiliar e em apenas três meses fui promovida para a contabilidade. Quando existe apoio e reconhecimento, o crescimento acontece de forma natural."</p>
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"Existe espaço para desenvolvimento aqui — e o trabalho é valorizado de forma justa e inspiradora."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Promovida em 3 meses — dedicação é vista e valorizada</p></div>
+      <div><p class="rl">Uma decisão</p><p class="rr">Aceitar a nova área com coragem e determinação</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 17 ALESSANDRA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">17 · São Paulo</span>
+    <div class="card-id">
+      <p class="card-nome">Alessandra Aragon Frate</p>
+      <p class="card-meta">Analista Comercial · SP · 2 a 5 anos</p>
+    </div>
+    <span class="card-vinho">🥂 Spumante Millesimato Contessa Carola</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"Somos maioria na empresa, temos liberdade de expressão e somos valorizadas no dia a dia."</p>
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"As mulheres trazem uma visão sensível ao detalhe e ao relacionamento — sem perder o foco em resultado. Essencial no mercado de vinhos, que é ao mesmo tempo técnico e emocional."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">A valorização do Marketing como setor estratégico</p></div>
+      <div><p class="rl">Um aprendizado</p><p class="rr">Respeitar diferentes culturas entre os estados do país</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 18 VANESSA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">18 · Santa Catarina</span>
+    <div class="card-id">
+      <p class="card-nome">Vanessa Mezzari Fabris</p>
+      <p class="card-meta">Coordenadora Importação e Contabilidade · SC · 5 a 10 anos</p>
+    </div>
+    <span class="card-vinho">🍷 Chianti Clássico Riserva</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"A Italys oferece condições para que nós, mulheres, possamos nos desenvolver sem abrir mão da maternidade — promovendo equilíbrio, compreensão e oportunidades reais."</p>
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"O apoio moral e emocional recebido, especialmente em momentos difíceis da minha vida pessoal, fez toda a diferença."</p>
+    <div class="raps">
+      <div><p class="rl">Uma decisão</p><p class="rr">Abraçar as oportunidades sem abrir mão do que me traz paz</p></div>
+      <div><p class="rl">Um reconhecimento</p><p class="rr">Me senti acolhida como pessoa, não apenas como profissional</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 19 BRUNA BARBOSA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">19 · Santa Catarina</span>
+    <div class="card-id">
+      <p class="card-nome">Bruna Barbosa Antunes Manoel</p>
+      <p class="card-meta">Analista Financeiro · SC · 2 a 5 anos</p>
+    </div>
+    <span class="card-vinho">—</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"Temos uma presença feminina muito forte — inclusive em maior número que os homens. Isso demonstra valorização, capacidade e espaço real para crescimento."</p>
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"Aprendi muitas coisas que antes eu não sabia. Adquiri experiência, conhecimento e segurança para lidar com diferentes situações."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Promovida ao cargo de analista pelo esforço e aprendizado</p></div>
+      <div><p class="rl">Uma decisão</p><p class="rr">Me dedicar ainda mais ao desenvolvimento profissional</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 20 KARINE -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">20 · Santa Catarina</span>
+    <div class="card-id">
+      <p class="card-nome">Karine Vieira Freitas</p>
+      <p class="card-meta">Coordenadora RH e Financeiro · SC · 2 a 5 anos</p>
+    </div>
+    <span class="card-vinho">🌸 Moscato Primore Rosé</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"Me sinto muito valorizada. É um ambiente onde há respeito, confiança e reconhecimento — o que me permite continuar crescendo."</p>
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"Iniciei como auxiliar financeiro e, com dedicação constante, conquistei a coordenação financeira — e depois também do RH. É a confiança da liderança se tornando realidade."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Contribuir tanto quanto meu marido financeiramente — e trocar meu carro</p></div>
+      <div><p class="rl">Um aprendizado</p><p class="rr">Proatividade e clareza na comunicação fazem toda a diferença</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 21 MARCELA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">21 · Rio de Janeiro</span>
+    <div class="card-id">
+      <p class="card-nome">Marcela de Oliveira Silva</p>
+      <p class="card-meta">Promotora · RJ · Até 2 anos</p>
+    </div>
+    <span class="card-vinho">🥂 Why Not</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"Aprendi a lidar melhor com o público. E aprendi que aprender não ocupa espaço."</p>
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"Muitas das vezes só sendo mulher pra entender o que aconteceu."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Alugar minha casa</p></div>
+      <div><p class="rl">Um reconhecimento</p><p class="rr">A Italys é uma empresa que pensa nos funcionários</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 22 ISALETE -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">22 · Santa Catarina · 10 a 15 anos</span>
+    <div class="card-id">
+      <p class="card-nome">Isalete B. Borba</p>
+      <p class="card-meta">Gerente Geral · SC · 10 a 15 anos</p>
+    </div>
+    <span class="card-vinho">—</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"Sinto-me realizada e grata por fazer parte."</p>
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"Uma jornada de conquistas, desafios, superação e concretização de sonhos."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Contribuir para o crescimento — fortalecendo pessoas e resultados</p></div>
+      <div><p class="rl">Um aprendizado</p><p class="rr">Cada uma carrega uma essência única — ela precisa ser vista e acolhida</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 23 FABIANA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">23 · Rio de Janeiro</span>
+    <div class="card-id">
+      <p class="card-nome">Fabiana dos Santos Gomes</p>
+      <p class="card-meta">Representante Comercial · RJ · 2 a 5 anos</p>
+    </div>
+    <span class="card-vinho">🍷 Marani</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"Todas com o mesmo propósito de fazer a Italys crescer a cada dia. Somos resilientes — e, o mais importante, unidas para crescermos juntas."</p>
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"Larguei meu emprego anterior com zero clientes. Não foi fácil — mas não me arrependo."</p>
+    <div class="raps">
+      <div><p class="rl">Um aprendizado</p><p class="rr">Mesmo com dificuldades, acreditar que as mudanças boas virão</p></div>
+      <div><p class="rl">Um reconhecimento</p><p class="rr">Pelo trabalho e pela representatividade</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 24 AMARNNA -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">24 · Espírito Santo</span>
+    <div class="card-id">
+      <p class="card-nome">Amarnna Américo Lima</p>
+      <p class="card-meta">Promotora · ES · 2 a 5 anos</p>
+    </div>
+    <span class="card-vinho">🍷 Dolomite Branco</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">O que mudou na sua trajetória?</p>
+    <p class="p-r">"A entrada na Italys se deu junto com um salto marcante na minha vida — após um divórcio. Me desenvolvi demais como mulher e ser humano. Aprendi a focar em mim."</p>
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"A empresa dá espaço e voz a todas nós — somos vistas, ouvidas e incluídas, mesmo com a distância."</p>
+    <div class="raps">
+      <div><p class="rl">Um aprendizado</p><p class="rr">O esforço e a constância geram bons frutos</p></div>
+      <div><p class="rl">Uma decisão</p><p class="rr">Me comprometer cada dia mais</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 25 MARIA GRANUZZO -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">25 · Verona · Itália</span>
+    <div class="card-id">
+      <p class="card-nome">Maria Granuzzo</p>
+      <p class="card-meta">Assistente de Escritório · Verona, Itália · 5 a 10 anos</p>
+    </div>
+    <span class="card-vinho">—</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"Me sinto bem e valorizada. A empresa me ajudou a amadurecer nas escolhas pessoais e profissionais."</p>
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"A mulher traz sensibilidade em tudo o que faz — dedicação, cuidado nos detalhes e um olhar atento que faz a diferença."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Crescimento profissional e fortalecimento da confiança</p></div>
+      <div><p class="rl">Um aprendizado</p><p class="rr">Análises detalhadas e decisões com mais precisão</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 26 TAINÁ -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">26 · Santa Catarina</span>
+    <div class="card-id">
+      <p class="card-nome">Tainá Francisco</p>
+      <p class="card-meta">Analista Contábil · SC · 2 a 5 anos</p>
+    </div>
+    <span class="card-vinho">🥂 Espumante Primore</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"É uma grande satisfação estar em uma empresa que visa o bem-estar dos colaboradores — e ainda mais gratificante fazer parte de um ambiente onde a maioria é composta por mulheres."</p>
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"As mulheres são protagonistas na Italy's Wine, ocupando espaços de tomada de decisão e contribuindo para a construção da cultura da empresa."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Assumir novos desafios e responsabilidades logo no início</p></div>
+      <div><p class="rl">Uma decisão</p><p class="rr">Me posicionar com mais clareza e confiar no meu trabalho</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 27 MARIA GRANUZZO -->
+<div class="card rv">
+  <div class="cf">
+    <div class="foto-slot">
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
+    </div>
+    <div class="foto-grad"></div>
+    <span class="foto-num">27 · Verona · Itália</span>
+    <div class="card-id">
+      <p class="card-nome">Maria Granuzzo</p>
+      <p class="card-meta">Assistente de Escritório · Verona, Itália · 5 a 10 anos</p>
+    </div>
+    <span class="card-vinho">—</span>
+  </div>
+  <div class="ct">
+    <p class="p-l">Como você se sente trabalhando na Italy's Wine?</p>
+    <p class="p-r">"Me sinto bem e valorizada. A empresa me ajudou a amadurecer nas escolhas pessoais e profissionais."</p>
+    <p class="p-l">O que é protagonismo feminino para você?</p>
+    <p class="p-r">"A mulher traz sensibilidade em tudo o que faz — dedicação, cuidado nos detalhes e um olhar atento que faz a diferença em cada trabalho realizado."</p>
+    <div class="raps">
+      <div><p class="rl">Uma conquista</p><p class="rr">Crescimento profissional e fortalecimento da confiança</p></div>
+      <div><p class="rl">Um reconhecimento</p><p class="rr">Devo aos meus responsáveis, que sempre me orientam com sabedoria</p></div>
+    </div>
+  </div>
+</div>
+
+  </div><!-- fim .cw -->
+</section>
+
+<!-- ══ TOP 3 VINHOS ══ -->
+<section id="s-enq" class="enq">
+  <svg class="enq-flores" style="top:-80px;left:-80px;opacity:.12;width:340px;height:340px;" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="90" cy="170" rx="130" ry="200" fill="#F0799A" transform="rotate(15 90 170)"/>
+    <ellipse cx="40" cy="130" rx="100" ry="165" fill="#E0497A" transform="rotate(-10 40 130)"/>
+    <circle cx="100" cy="200" r="30" fill="#C02060"/>
+  </svg>
+  <svg class="enq-flores" style="bottom:-80px;right:-60px;opacity:.12;width:340px;height:340px;transform:rotate(180deg);" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="90" cy="170" rx="130" ry="200" fill="#F0799A" transform="rotate(15 90 170)"/>
+    <ellipse cx="40" cy="130" rx="100" ry="165" fill="#E0497A" transform="rotate(-10 40 130)"/>
+    <circle cx="100" cy="200" r="30" fill="#C02060"/>
+  </svg>
+
+  <div class="enq-in rv">
+    <p class="enq-tag">05 — Os Preferidos das Colaboradoras</p>
+    <h2 class="enq-h">Os vinhos que</h2>
+    <span class="enq-sc">elas escolheram</span>
+    <p class="enq-sub">As 27 vozes da Italys elegeram seus favoritos · Confira o top 3</p>
+
+    <div class="podium">
+
+      <!-- 2º lugar -->
+      <div class="pod-card pod-2 rv">
+        <div class="pod-rank">2º</div>
+        <div class="pod-foto-wrap">
+          <div class="pod-foto">
+            <svg class="foto-slot-icon" width="44" height="44" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+            <span class="foto-slot-label">foto do produto</span>
+          </div>
+        </div>
+        <div class="pod-info">
+          <p class="pod-votos">5 colaboradoras</p>
+          <p class="pod-nome">Why Not</p>
+          <p class="pod-tipo">Espumante</p>
+          <p class="pod-desc">"Pela explosão de sabores e o toque macio no paladar."</p>
+        </div>
+      </div>
+
+      <!-- 1º lugar -->
+      <div class="pod-card pod-1 rv">
+        <div class="pod-coroa">👑</div>
+        <div class="pod-rank">1º</div>
+        <div class="pod-foto-wrap">
+          <div class="pod-foto">
+            <svg class="foto-slot-icon" width="44" height="44" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+            <span class="foto-slot-label">foto do produto</span>
+          </div>
+        </div>
+        <div class="pod-info">
+          <p class="pod-votos">7 colaboradoras</p>
+          <p class="pod-nome">Moscato Rosé Primore</p>
+          <p class="pod-tipo">Espumante Rosé · Cód. 895</p>
+          <p class="pod-desc">"Alegre, vibrante, delicado e sofisticado — perfeito para momentos que merecem ser especiais."</p>
+        </div>
+      </div>
+
+      <!-- 3º lugar -->
+      <div class="pod-card pod-3 rv">
+        <div class="pod-rank">3º</div>
+        <div class="pod-foto-wrap">
+          <div class="pod-foto">
+            <svg class="foto-slot-icon" width="44" height="44" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+            <span class="foto-slot-label">foto do produto</span>
+          </div>
+        </div>
+        <div class="pod-info">
+          <p class="pod-votos">3 colaboradoras</p>
+          <p class="pod-nome">Primitivo di Manduria Reserva</p>
+          <p class="pod-tipo">Tinto</p>
+          <p class="pod-desc">"Intenso, encorpado e marcante — como cada mulher que o escolheu."</p>
+        </div>
+      </div>
+
+    </div><!-- fim .podium -->
+  </div>
+</section>
+
+<footer>
+  <p class="ft-logo">Italys Wine</p>
+  <p class="ft-sub">Histórias que fermentam · Vozes que brindam</p>
+  <p class="ft-d">Edição Especial Dia Internacional da Mulher · 8 de Março de 2025</p>
+</footer>
+
+<script>
+// REVEAL
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('on'); }), {threshold:.08});
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+// NAV
+const secs = ['s-capa','s-ed','s-corp','s-ent','s-enq'];
+const dots = document.querySelectorAll('.ndot');
+window.addEventListener('scroll', () => {
+  let a = 0;
+  secs.forEach((id,i) => { const el=document.getElementById(id); if(el && el.getBoundingClientRect().top < window.innerHeight*.5) a=i; });
+  dots.forEach((d,i) => d.classList.toggle('on', i===a));
+});
+function ir(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+</script>
+</body>
+</html>
