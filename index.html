@@ -80,51 +80,13 @@ body{font-family:'Montserrat',sans-serif;background:#fff;color:var(--texto);over
 /* Slot de foto */
 .cf{position:relative;overflow:hidden;min-height:460px;display:flex;flex-direction:column;justify-content:flex-end;}
 .foto-slot{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;        /* centraliza verticalmente */
-  justify-content:center;    /* centraliza horizontalmente */
-  padding-bottom:90px;       /* sobe o círculo para dar espaço ao nome/cargo embaixo */
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(135deg,#c9a0b4,#a06080);
 }
-
-/* Círculo da foto — mesmo estilo do print */
-.foto-circulo{
-  width:160px;
-  height:160px;
-  border-radius:50%;
-  overflow:hidden;
-  border:4px solid rgba(255,255,255,.9);
-  box-shadow:0 10px 40px rgba(92,10,40,.45);
-  position:relative;
-  z-index:2;
-  flex-shrink:0;
-  background:rgba(255,255,255,.1);
-}
-.foto-circulo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center top;
-  display:block;
-}
-.foto-circulo.sem-foto{
-  border:3px dashed rgba(255,255,255,.25);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.foto-circulo.sem-foto::after{
-  content:'+';
-  font-size:36px;
-  color:rgba(255,255,255,.2);
-  font-weight:300;
-}
-
-@media(max-width:820px){
-  .foto-circulo{width:120px;height:120px;}
-  .foto-slot{padding-bottom:70px;}
-}
+.foto-slot-icon{opacity:.3;}
+.foto-slot-label{font-size:9px;letter-spacing:3px;color:#fff;text-transform:uppercase;opacity:.5;}
+/* quando tiver foto real: .cf img { position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0; } */
 .foto-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(92,10,40,.78) 0%,rgba(92,10,40,.08) 55%,transparent 100%);z-index:1;}
 .foto-num{position:absolute;top:26px;left:26px;z-index:2;font-size:9px;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;}
 .card-id{position:relative;z-index:2;padding:28px 30px;}
@@ -210,31 +172,12 @@ body{font-family:'Montserrat',sans-serif;background:#fff;color:var(--texto);over
 /* Slot foto produto */
 .pod-foto-wrap{width:100%;margin-bottom:24px;}
 .pod-foto{
-  width:100%;
-  aspect-ratio:3/4;
+  width:100%;aspect-ratio:3/4;
   background:rgba(255,255,255,.06);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid rgba(255,255,255,.08);
-  overflow:hidden;
-  position:relative;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;border:1px dashed rgba(255,255,255,.15);
 }
-.pod-foto img{
-  width:85%;
-  height:90%;
-  object-fit:contain;
-  object-position:center center;
-  display:block;
-}
-.pod-foto.sem-foto::after{
-  content:'foto do produto';
-  font-size:8px;
-  letter-spacing:3px;
-  color:rgba(255,255,255,.2);
-  text-transform:uppercase;
-  position:absolute;
-}
+/* quando tiver foto real: .pod-foto img{width:100%;height:100%;object-fit:cover;} */
 
 .pod-votos{font-size:9px;letter-spacing:3px;color:var(--rosa);text-transform:uppercase;margin-bottom:8px;}
 .pod-nome{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:4px;text-align:center;}
@@ -361,11 +304,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Viviane Laranjeiras.jpeg" alt="Viviane Laranjeiras" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">01 · Rio de Janeiro</span>
     <div class="card-id">
       <p class="card-nome">Viviane Martins Laranjeiras</p>
@@ -389,11 +331,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Rafaela Cruz.jpg" alt="Rafaela Cruz" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">02 · Minas Gerais</span>
     <div class="card-id">
       <p class="card-nome">Rafaela Tamiris Cruz</p>
@@ -417,11 +358,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Tamara Siqueira.jpeg" alt="Tamara Siqueira" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">03 · Rio de Janeiro</span>
     <div class="card-id">
       <p class="card-nome">Tamara de Siqueira Alexandre</p>
@@ -445,11 +385,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/IMG_20250925_171553567 - Elisângela Silva.jpg" alt="IMG_20250925_171553567 - Elisângela Silva" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">04 · Rio de Janeiro · 10 a 15 anos</span>
     <div class="card-id">
       <p class="card-nome">Elisângela Maria da Silva</p>
@@ -473,11 +412,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Eugilenia - RH Italys Wine.jpeg" alt="Eugilenia - RH Italys Wine" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">05 · Santa Catarina · Matriz</span>
     <div class="card-id">
       <p class="card-nome">Eugilenia Marinho da Silva</p>
@@ -501,11 +439,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Andressa Moralles.jpeg" alt="Andressa Moralles" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">06 · Santa Catarina</span>
     <div class="card-id">
       <p class="card-nome">Andressa Moralles Morais</p>
@@ -529,11 +466,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/francine faturamento.jpg" alt="francine faturamento" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">07 · Santa Catarina</span>
     <div class="card-id">
       <p class="card-nome">Francine Costa da Cunha</p>
@@ -557,11 +493,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Fernanda Brandão Bandeira.jpeg" alt="Fernanda Brandão Bandeira" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">08 · Santa Catarina</span>
     <div class="card-id">
       <p class="card-nome">Fernanda S. Brandão Bandeira</p>
@@ -585,11 +520,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Cristina Camargo.jpg" alt="Cristina Camargo" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">09 · Paraná · 10 a 15 anos</span>
     <div class="card-id">
       <p class="card-nome">Tereza Cristina Camargo Serrato</p>
@@ -613,11 +547,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Roberta - RJ - RH Italys Wine.jpg" alt="Roberta - RJ - RH Italys Wine" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">10 · Rio de Janeiro</span>
     <div class="card-id">
       <p class="card-nome">Roberta Matos Alves dos Reis</p>
@@ -641,11 +574,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/sibeli.jpg" alt="sibeli" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">11 · Santa Catarina</span>
     <div class="card-id">
       <p class="card-nome">Sibeli Borba</p>
@@ -669,11 +601,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Nicole Inocencio - Projesul - RH Italys Wine.jpeg" alt="Nicole Inocencio - Projesul - RH Italys Wine" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">12 · Belo Horizonte · MG</span>
     <div class="card-id">
       <p class="card-nome">Rosângela Martins de Souza</p>
@@ -697,11 +628,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/AMANDA lopes.webp" alt="AMANDA lopes" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">13 · Minas Gerais</span>
     <div class="card-id">
       <p class="card-nome">Amanda Priscila de Souza Lopes</p>
@@ -725,11 +655,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Lilian Santos.jpeg" alt="Lilian Santos" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">14 · Minas Gerais</span>
     <div class="card-id">
       <p class="card-nome">Lilian Santos</p>
@@ -753,11 +682,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Angela Castilho.webp" alt="Angela Castilho" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">15 · Minas Gerais</span>
     <div class="card-id">
       <p class="card-nome">Angela Carla de Castilho</p>
@@ -781,11 +709,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Bruna Machado - Assistente Fiscal Italy_s Wine.JPG" alt="Bruna Machado - Assistente Fiscal Italy_s Wine" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">16 · Santa Catarina</span>
     <div class="card-id">
       <p class="card-nome">Bruna Miranda Machado</p>
@@ -809,11 +736,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Alessandra Frate Comercial SP.jpg" alt="Alessandra Frate Comercial SP" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">17 · São Paulo</span>
     <div class="card-id">
       <p class="card-nome">Alessandra Aragon Frate</p>
@@ -837,11 +763,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Vanessa Mezzari.jpeg" alt="Vanessa Mezzari" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">18 · Santa Catarina</span>
     <div class="card-id">
       <p class="card-nome">Vanessa Mezzari Fabris</p>
@@ -865,11 +790,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Bruna Barbosa.png" alt="Bruna Barbosa" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">19 · Santa Catarina</span>
     <div class="card-id">
       <p class="card-nome">Bruna Barbosa Antunes Manoel</p>
@@ -893,11 +817,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Karine Vieira.jpg" alt="Karine Vieira" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">20 · Santa Catarina</span>
     <div class="card-id">
       <p class="card-nome">Karine Vieira Freitas</p>
@@ -921,11 +844,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Marcela de Oliveira Silva .jpg" alt="Marcela de Oliveira Silva " onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">21 · Rio de Janeiro</span>
     <div class="card-id">
       <p class="card-nome">Marcela de Oliveira Silva</p>
@@ -949,11 +871,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/ISA - ISALETE BORBA.jpeg" alt="ISA - ISALETE BORBA" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">22 · Santa Catarina · 10 a 15 anos</span>
     <div class="card-id">
       <p class="card-nome">Isalete B. Borba</p>
@@ -977,11 +898,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Fabiana Dos Santos gomes.jpeg" alt="Fabiana Dos Santos gomes" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">23 · Rio de Janeiro</span>
     <div class="card-id">
       <p class="card-nome">Fabiana dos Santos Gomes</p>
@@ -1005,11 +925,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Fabiani Santana.jpg" alt="Fabiani Santana" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">24 · Espírito Santo</span>
     <div class="card-id">
       <p class="card-nome">Amarnna Américo Lima</p>
@@ -1033,11 +952,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Amarnna Lima.jpeg" alt="Amarnna Lima" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">25 · Verona · Itália</span>
     <div class="card-id">
       <p class="card-nome">Maria Granuzzo</p>
@@ -1061,11 +979,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/Tainá - RH Italys Wine.jpeg" alt="Tainá - RH Italys Wine" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">26 · Santa Catarina</span>
     <div class="card-id">
       <p class="card-nome">Tainá Francisco</p>
@@ -1089,11 +1006,10 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <div class="card rv">
   <div class="cf">
     <div class="foto-slot">
-      <div class="foto-circulo">
-        <img src="fotos/6 - Maria Granuzzo.jpeg" alt="6 - Maria Granuzzo" onerror="this.closest('.foto-circulo').classList.add('sem-foto');this.remove()">
-      </div>
+      <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+      <span class="foto-slot-label">adicionar foto</span>
     </div>
-    </div>
+    <div class="foto-grad"></div>
     <span class="foto-num">27 · Verona · Itália</span>
     <div class="card-id">
       <p class="card-nome">Maria Granuzzo</p>
@@ -1141,8 +1057,9 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
       <div class="pod-card pod-2 rv">
         <div class="pod-rank">2º</div>
         <div class="pod-foto-wrap">
-          <div class="pod-foto sem-foto" id="foto-vinho-2">
-            <img src="vinhos/why-not.png" alt="Why Not" onerror="this.style.display='none'">
+          <div class="pod-foto">
+            <svg class="foto-slot-icon" width="44" height="44" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+            <span class="foto-slot-label">foto do produto</span>
           </div>
         </div>
         <div class="pod-info">
@@ -1158,8 +1075,9 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
         <div class="pod-coroa">👑</div>
         <div class="pod-rank">1º</div>
         <div class="pod-foto-wrap">
-          <div class="pod-foto sem-foto" id="foto-vinho-1">
-            <img src="vinhos/primore.png" alt="Moscato Rose Primore" onerror="this.style.display='none'">
+          <div class="pod-foto">
+            <svg class="foto-slot-icon" width="44" height="44" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+            <span class="foto-slot-label">foto do produto</span>
           </div>
         </div>
         <div class="pod-info">
@@ -1174,8 +1092,9 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
       <div class="pod-card pod-3 rv">
         <div class="pod-rank">3º</div>
         <div class="pod-foto-wrap">
-          <div class="pod-foto sem-foto" id="foto-vinho-3">
-            <img src="vinhos/primitivo.png" alt="Primitivo di Manduria Reserva" onerror="this.style.display='none'">
+          <div class="pod-foto">
+            <svg class="foto-slot-icon" width="44" height="44" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
+            <span class="foto-slot-label">foto do produto</span>
           </div>
         </div>
         <div class="pod-info">
