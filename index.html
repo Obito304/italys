@@ -86,7 +86,8 @@ body{font-family:'Montserrat',sans-serif;background:#fff;color:var(--texto);over
 }
 .foto-slot-icon{opacity:.3;}
 .foto-slot-label{font-size:9px;letter-spacing:3px;color:#fff;text-transform:uppercase;opacity:.5;}
-/* quando tiver foto real: .cf img { position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0; } */
+.cf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.cf:has(img) .foto-slot{display:none;}
 .foto-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(92,10,40,.78) 0%,rgba(92,10,40,.08) 55%,transparent 100%);z-index:1;}
 .foto-num{position:absolute;top:26px;left:26px;z-index:2;font-size:9px;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;}
 .card-id{position:relative;z-index:2;padding:28px 30px;}
@@ -177,7 +178,7 @@ body{font-family:'Montserrat',sans-serif;background:#fff;color:var(--texto);over
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:8px;border:1px dashed rgba(255,255,255,.15);
 }
-/* quando tiver foto real: .pod-foto img{width:100%;height:100%;object-fit:cover;} */
+.pod-foto img{width:100%;height:100%;object-fit:contain;padding:8px;} .pod-foto:has(img) svg, .pod-foto:has(img) span{display:none;}
 
 .pod-votos{font-size:9px;letter-spacing:3px;color:var(--rosa);text-transform:uppercase;margin-bottom:8px;}
 .pod-nome{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:4px;text-align:center;}
@@ -303,7 +304,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 01 VIVIANE -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/01.jpeg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -330,7 +332,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 02 RAFAELA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/02.jpg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -357,7 +360,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 03 TAMARA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/03.jpeg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -384,7 +388,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 04 ELISÂNGELA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/04.jpg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -411,7 +416,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 05 EUGILENIA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/05.jpeg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -438,7 +444,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 06 ANDRESSA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/06.jpeg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -465,7 +472,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 07 FRANCINE -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/07.jpg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -492,7 +500,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 08 FERNANDA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/08.jpeg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -519,7 +528,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 09 TEREZA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/09.jpg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -546,7 +556,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 10 ROBERTA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/10.jpg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -573,7 +584,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 11 SIBELI -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/11.jpg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -600,7 +612,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 12 ROSÂNGELA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/12.jpg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -627,7 +640,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 13 AMANDA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/13.webp" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -654,7 +668,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 14 LILIAN -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/14.jpeg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -681,7 +696,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 15 ANGELA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/15.webp" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -708,7 +724,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 16 BRUNA MIRANDA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/16.jpg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -735,7 +752,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 17 ALESSANDRA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/17.jpg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -762,7 +780,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 18 VANESSA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/18.jpeg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -789,7 +808,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 19 BRUNA BARBOSA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/19.png" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -816,7 +836,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 20 KARINE -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/20.jpg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -843,7 +864,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 21 MARCELA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/21.jpg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -870,7 +892,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 22 ISALETE -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/22.jpeg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -897,7 +920,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 23 FABIANA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/23.jpeg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -924,7 +948,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 24 AMARNNA -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/24.jpeg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -951,7 +976,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 25 MARIA GRANUZZO -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/25.jpeg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -978,7 +1004,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 26 TAINÁ -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/26.jpeg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -1005,7 +1032,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
 <!-- 27 MARIA GRANUZZO -->
 <div class="card rv">
   <div class="cf">
-    <div class="foto-slot">
+    <img src="fotos/25.jpeg" alt="" loading="lazy">
+        <div class="foto-slot">
       <svg class="foto-slot-icon" width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
       <span class="foto-slot-label">adicionar foto</span>
     </div>
@@ -1057,8 +1085,8 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
       <div class="pod-card pod-2 rv">
         <div class="pod-rank">2º</div>
         <div class="pod-foto-wrap">
-          <div class="pod-foto sem-foto" id="foto-vinho-2">
-            <img src="vinhos/why-not.png" alt="Why Not" onerror="this.style.display='none'">
+          <div class="pod-foto">
+            <img src="vinhos/why-not.png" alt="Why Not">
           </div>
         </div>
         <div class="pod-info">
@@ -1075,8 +1103,7 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
         <div class="pod-rank">1º</div>
         <div class="pod-foto-wrap">
           <div class="pod-foto">
-            <svg class="foto-slot-icon" width="44" height="44" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
-            <span class="foto-slot-label">foto do produto</span>
+            <img src="vinhos/primore.png" alt="Moscato Rosé Primore">
           </div>
         </div>
         <div class="pod-info">
@@ -1092,8 +1119,7 @@ footer{background:var(--vinho);padding:60px;text-align:center;}
         <div class="pod-rank">3º</div>
         <div class="pod-foto-wrap">
           <div class="pod-foto">
-            <svg class="foto-slot-icon" width="44" height="44" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="19" r="10" fill="white"/><path d="M6 46c0-11 9-18 20-18s20 7 20 18" fill="white"/></svg>
-            <span class="foto-slot-label">foto do produto</span>
+            <img src="vinhos/primitivo.png" alt="Primitivo di Manduria Reserva">
           </div>
         </div>
         <div class="pod-info">
