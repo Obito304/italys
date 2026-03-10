@@ -6,718 +6,815 @@
 <title>Italy's Wine – Últimas Oportunidades</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background-color: #0c0a07;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    color: #e8dcc8;
-  }
-  .email-wrapper {
-    max-width: 620px;
-    margin: 0 auto;
-    background-color: #0c0a07;
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #c4913d;
+    --gold-dark: #8b5a1e;
+    --gold-deep: #6a4a18;
+    --bg: #0c0a07;
+    --bg-1: #110e09;
+    --bg-2: #15120a;
+    --cream: #f0e6d0;
+    --text: #d8ccb4;
+    --muted: #8a7a60;
+    --dim: #5a4e38;
+    --border: #1e1810;
+    --border-gold: #2e2414;
   }
 
-  /* ─── HEADER ─── */
-  .header {
-    background: linear-gradient(160deg, #1a1208 0%, #0c0a07 50%, #0f0c06 100%);
-    padding: 48px 40px 36px;
-    text-align: center;
-    border-bottom: 1px solid #2e2414;
-    position: relative;
-    overflow: hidden;
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--bg);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--text);
+    overflow-x: hidden;
   }
-  .header::before {
-    content: '';
-    position: absolute;
-    top: -80px; left: 50%;
-    transform: translateX(-50%);
-    width: 360px; height: 360px;
-    background: radial-gradient(ellipse, rgba(139,90,30,0.10) 0%, transparent 70%);
-    pointer-events: none;
+
+  /* ─── HEADER / NAV ─── */
+  .site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(180deg, rgba(12,10,7,0.96) 0%, rgba(12,10,7,0) 100%);
+    transition: background 0.4s ease;
   }
-  .logo-img {
-    max-height: 68px;
+  .site-header.scrolled {
+    background: rgba(12,10,7,0.97);
+    border-bottom: 1px solid var(--border-gold);
+  }
+  .logo-svg-wrap {
+    display: flex;
+    align-items: center;
+  }
+  .logo-svg-wrap svg {
+    height: 42px;
     width: auto;
-    max-width: 240px;
-    display: block;
-    margin: 0 auto 12px;
+    max-width: 180px;
   }
-  .logo-fallback {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 34px;
-    font-weight: 700;
-    color: #e8dcc8;
-    line-height: 1.1;
-    display: none;
-    margin-bottom: 12px;
-  }
-  .logo-fallback em { font-style: italic; color: #c4913d; }
-  .logo-sub {
+  .header-tagline {
     font-size: 9px;
-    letter-spacing: 5px;
-    color: #4a3e28;
+    letter-spacing: 4px;
+    color: var(--gold-deep);
     text-transform: uppercase;
   }
-  .divider-gold {
-    display: block;
-    width: 50px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #6a4a18, transparent);
-    margin: 22px auto 0;
+  .header-cta {
+    display: inline-block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    padding: 10px 22px;
+    text-decoration: none;
   }
 
   /* ─── HERO ─── */
   .hero {
     position: relative;
-    padding: 72px 48px 60px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     overflow: hidden;
-    border-bottom: 1px solid #1e1810;
   }
   .hero-bg {
     position: absolute; inset: 0;
     background-image: url('../swirling-red-wine-point-view-sea-with-dramatic-sunset-sky.jpg');
     background-size: cover;
-    background-position: center 60%;
-    opacity: 0.12;
+    background-position: center;
+    transform: scale(1.05);
+    transition: transform 8s ease-out;
   }
-  .hero-vignette {
+  .hero-bg.loaded { transform: scale(1); }
+  .hero-overlay {
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse at center, transparent 30%, #0c0a07 80%);
+    background: linear-gradient(180deg,
+      rgba(12,10,7,0.55) 0%,
+      rgba(12,10,7,0.3) 40%,
+      rgba(12,10,7,0.7) 80%,
+      rgba(12,10,7,1) 100%
+    );
   }
-  .hero-content { position: relative; z-index: 1; }
-  .kicker {
+  .hero-content {
+    position: relative; z-index: 1;
+    max-width: 780px;
+    padding: 0 40px;
+    animation: fadeUp 1.2s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-kicker {
     font-size: 9px;
-    letter-spacing: 5px;
-    color: #7a5a20;
+    letter-spacing: 6px;
+    color: var(--gold-dark);
     text-transform: uppercase;
-    margin-bottom: 22px;
+    margin-bottom: 28px;
     display: block;
+    animation: fadeUp 1.2s 0.2s ease both;
   }
-  .headline {
+  .hero-headline {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 42px;
+    font-size: 64px;
     font-weight: 400;
-    line-height: 1.15;
-    color: #f0e6d0;
-    margin-bottom: 14px;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 18px;
+    animation: fadeUp 1.2s 0.3s ease both;
   }
-  .headline em { font-style: italic; color: #c4913d; }
-  .subheadline {
+  .hero-headline em { font-style: italic; color: var(--gold); }
+  .hero-sub {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 18px;
+    font-size: 20px;
     font-style: italic;
-    color: #5a5040;
-    margin-bottom: 32px;
-    letter-spacing: 0.5px;
+    color: rgba(240,230,208,0.45);
+    margin-bottom: 40px;
+    animation: fadeUp 1.2s 0.4s ease both;
   }
   .hero-body {
-    font-size: 16px;
-    line-height: 1.95;
-    color: #9a8a6e;
+    font-size: 17px;
+    line-height: 2.0;
+    color: var(--muted);
     font-weight: 300;
-    max-width: 460px;
-    margin: 0 auto 40px;
+    max-width: 540px;
+    margin: 0 auto 48px;
+    animation: fadeUp 1.2s 0.5s ease both;
   }
-  .hero-body strong { color: #d8ccb4; font-weight: 400; }
-
-  /* ─── CTA ─── */
-  .cta-block { text-align: center; }
-  .btn-primary {
-    display: inline-block;
-    background: linear-gradient(135deg, #7a4e18 0%, #b8833a 50%, #7a4e18 100%);
-    color: #0c0a07;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 16px 42px;
-  }
-  .btn-ghost {
-    display: inline-block;
-    background: transparent;
-    color: #b8833a;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px 38px;
-    border: 1px solid #2e2414;
-  }
-  .btn-note {
-    font-size: 11px;
-    color: #3e3424;
-    letter-spacing: 1px;
-    margin-top: 12px;
-  }
-
-  /* ─── URGENCY ─── */
-  .urgency-wrap { padding: 28px 32px 0; }
-  .urgency {
-    background: #0f0c08;
-    border: 1px solid #261e0e;
-    border-left: 2px solid #7a5a20;
-    padding: 22px 24px;
+  .hero-body strong { color: var(--text); font-weight: 400; }
+  .hero-cta-wrap {
     display: flex;
     align-items: center;
-    gap: 18px;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    animation: fadeUp 1.2s 0.6s ease both;
   }
-  .urgency-icon { font-size: 24px; flex-shrink: 0; opacity: 0.5; }
-  .urgency-text { font-size: 14px; color: #8a7a5e; line-height: 1.8; font-weight: 300; }
-  .urgency-text strong { color: #d8ccb4; font-weight: 400; }
+  .btn-gold {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+    color: var(--bg);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 17px 44px;
+    transition: opacity 0.2s;
+  }
+  .btn-gold:hover { opacity: 0.85; }
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid var(--border-gold);
+    color: var(--gold);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 36px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--cream); }
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 40px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: 0.3;
+    animation: fadeUp 1.2s 1.0s ease both;
+  }
+  .hero-scroll-hint span { font-size: 9px; letter-spacing: 3px; color: var(--gold-dark); text-transform: uppercase; }
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(180deg, var(--gold-dark), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse { 0%,100%{opacity:.3} 50%{opacity:.8} }
 
-  /* ─── SECTION LABEL ─── */
-  .section-label {
-    padding: 52px 40px 14px;
+  /* ─── SECTIONS ─── */
+  .section { padding: 100px 0; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+  .divider-gold {
+    display: block;
+    width: 48px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+    margin: 0 auto;
+  }
+  .kicker {
+    font-size: 9px; letter-spacing: 5px; color: var(--gold-dark);
+    text-transform: uppercase; display: block; margin-bottom: 14px;
+  }
+  .section-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 36px; font-style: italic; font-weight: 400;
+    color: var(--cream); line-height: 1.25;
+  }
+  .section-headline em { color: var(--gold); }
+
+  /* ─── URGENCY BAR ─── */
+  .urgency-bar {
+    background: var(--bg-1);
+    border-top: 1px solid var(--border-gold);
+    border-bottom: 1px solid var(--border-gold);
+    padding: 22px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
     text-align: center;
   }
-  .section-title {
+  .urgency-bar .icon { font-size: 18px; opacity: 0.5; flex-shrink: 0; }
+  .urgency-bar p { font-size: 14px; color: var(--muted); font-weight: 300; line-height: 1.6; }
+  .urgency-bar strong { color: var(--text); font-weight: 400; }
+
+  /* ─── HIGHLIGHT WINES (2-col) ─── */
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 48px;
+  }
+  .highlight-card {
+    background: var(--bg-1);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--gold-dark);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .highlight-card:hover { border-color: var(--gold); }
+  .hc-image-wrap {
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #1a1510 0%, #0f0c08 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 28px;
+    overflow: hidden;
+    position: relative;
+  }
+  .hc-image-wrap::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
+    background: linear-gradient(0deg, var(--bg-1), transparent);
+  }
+  .hc-image-wrap img {
+    max-height: 240px;
+    width: auto;
+    max-width: 100px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6));
+    transition: transform 0.4s ease;
+  }
+  .highlight-card:hover .hc-image-wrap img { transform: translateY(-6px); }
+  .hc-image-ph {
+    width: 80px; height: 200px;
+    background: linear-gradient(180deg, #2a2215 0%, #1a1510 100%);
+    border: 1px solid #2a2215;
+    opacity: 0.4;
+  }
+  .hc-body {
+    padding: 28px 28px 32px;
+    flex: 1;
+    display: flex; flex-direction: column;
+  }
+  .hc-region {
+    font-size: 9px; letter-spacing: 3px; color: var(--gold-dark);
+    text-transform: uppercase; margin-bottom: 10px; display: block;
+  }
+  .hc-name {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 23px;
-    font-style: italic;
-    color: #c8bca2;
-    font-weight: 400;
+    font-size: 18px; font-style: italic; color: var(--cream);
+    line-height: 1.3; margin-bottom: 12px; flex: 1;
+  }
+  .hc-desc {
+    font-size: 14px; color: var(--dim); line-height: 1.75;
+    font-weight: 300; margin-bottom: 18px;
+  }
+  .hc-badge {
+    display: inline-block;
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 4px 12px;
+    border: 1px solid var(--border-gold);
+    color: var(--gold-dark);
+    align-self: flex-start;
   }
 
   /* ─── REGIONAL BANNER ─── */
   .region-banner {
-    position: relative;
-    height: 120px;
-    overflow: hidden;
+    position: relative; height: 180px; overflow: hidden;
   }
-  .region-banner-img {
+  .region-banner img {
     width: 100%; height: 100%;
     object-fit: cover;
-    filter: brightness(0.28) saturate(0.4);
+    filter: brightness(0.25) saturate(0.4);
   }
   .region-banner-overlay {
     position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center; flex-direction: column;
-    background: linear-gradient(90deg, rgba(12,10,7,0.8) 0%, rgba(12,10,7,0.1) 50%, rgba(12,10,7,0.8) 100%);
+    background: linear-gradient(90deg,
+      rgba(12,10,7,0.85) 0%, rgba(12,10,7,0.2) 50%, rgba(12,10,7,0.85) 100%
+    );
+    gap: 10px;
   }
-  .region-banner-kicker { font-size: 9px; letter-spacing: 5px; color: #7a5a20; text-transform: uppercase; margin-bottom: 8px; }
-  .region-banner-title {
+  .rb-kicker { font-size: 9px; letter-spacing: 5px; color: var(--gold-dark); text-transform: uppercase; }
+  .rb-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 22px; font-style: italic; color: #e0d4bc; font-weight: 400;
+    font-size: 28px; font-style: italic; color: var(--cream); font-weight: 400;
   }
 
-  /* ─── HIGHLIGHT WINES ─── */
-  .highlight-section { padding: 4px 32px 32px; }
-  .highlight-wine {
-    display: flex;
-    background: #0f0c08;
-    border: 1px solid #1e1810;
-    border-left: 2px solid #7a5a20;
-    margin-bottom: 8px;
-    overflow: hidden;
-    align-items: stretch;
-    min-height: 175px;
-  }
-  .hw-bottle {
-    width: 115px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(180deg, #141008 0%, #0c0908 100%);
-    padding: 16px 12px;
-    border-right: 1px solid #1a1510;
-  }
-  .hw-bottle img {
-    max-height: 190px;
-    width: auto;
-    max-width: 80px;
-    object-fit: contain;
-    display: block;
-  }
-  .hw-bottle-ph {
-    width: 60px; height: 155px;
-    background: linear-gradient(180deg, #201810 0%, #140f08 100%);
-    border: 1px solid #1e1810;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .hw-bottle-ph::after { content: ''; }
-  .hw-content {
-    flex: 1;
-    padding: 20px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .hw-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 8px;
-  }
-  .hw-name {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 15px; font-style: italic; color: #d8ccb4;
-    line-height: 1.35; flex: 1; padding-right: 10px;
-  }
-  .hw-type {
-    font-size: 9px; letter-spacing: 2px; color: #7a5a20;
-    text-transform: uppercase; flex-shrink: 0; padding-top: 2px;
-  }
-  .hw-desc {
-    font-size: 13px; color: #6a5e44; line-height: 1.7; font-weight: 300; margin-bottom: 12px;
-  }
-  .hw-badge {
-    display: inline-block;
-    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-    padding: 3px 10px;
-    border: 1px solid #261e0e;
-    color: #7a5a20;
-  }
-
-  /* ─── WINE GRID ─── */
-  .wines-section { padding: 4px 32px 40px; }
+  /* ─── WINES GRID (4-col) ─── */
   .wines-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 2px;
+    margin-top: 40px;
     background: #181410;
   }
   .wine-card {
-    background: #0c0a07;
-    display: flex;
-    flex-direction: column;
+    background: var(--bg);
+    display: flex; flex-direction: column;
     overflow: hidden;
+    transition: background 0.2s;
   }
-  .wine-card-thumb {
-    height: 96px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(180deg, #141008 0%, #0f0b07 100%);
+  .wine-card:hover { background: var(--bg-1); }
+  .wc-thumb {
+    height: 120px;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(180deg, #1a1510 0%, #0f0c08 100%);
     border-bottom: 1px solid #181410;
-    padding: 10px;
-    flex-shrink: 0;
+    padding: 14px;
   }
-  .wine-card-thumb img {
-    max-height: 80px;
-    width: auto;
-    max-width: 50px;
-    object-fit: contain;
+  .wc-thumb img {
+    max-height: 98px; width: auto; max-width: 54px; object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+    transition: transform 0.3s;
   }
-  .wine-card-thumb-ph {
-    width: 38px; height: 76px;
+  .wine-card:hover .wc-thumb img { transform: translateY(-3px); }
+  .wc-thumb-ph {
+    width: 42px; height: 90px;
     background: linear-gradient(180deg, #201810 0%, #140f08 100%);
-    border: 1px solid #1a1510;
-    opacity: 0.5;
+    border: 1px solid #1a1510; opacity: 0.4;
   }
-  .wine-card-body { padding: 15px 15px 17px; flex: 1; display: flex; flex-direction: column; }
-  .wine-region {
-    font-size: 9px; letter-spacing: 3px; color: #7a5a20;
-    text-transform: uppercase; margin-bottom: 5px; display: block;
+  .wc-body { padding: 16px 16px 20px; flex: 1; display: flex; flex-direction: column; }
+  .wc-region {
+    font-size: 9px; letter-spacing: 3px; color: var(--gold-dark);
+    text-transform: uppercase; margin-bottom: 5px;
   }
-  .wine-name {
+  .wc-name {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 12px; font-style: italic; color: #c8bca2;
+    font-size: 13px; font-style: italic; color: var(--text);
     line-height: 1.4; margin-bottom: 10px; flex: 1;
   }
-  .wine-badge {
+  .wc-badge {
     font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-    padding: 3px 7px; border: 1px solid #201810; color: #4a3e28; display: inline-block;
-    align-self: flex-start;
+    padding: 3px 8px; border: 1px solid #201810; color: #4a3e28;
+    display: inline-block; align-self: flex-start;
+  }
+  .wines-more {
+    font-size: 11px; color: #3a3020; text-align: center;
+    padding-top: 20px; letter-spacing: 2px; text-transform: uppercase;
   }
 
   /* ─── STATEMENT ─── */
   .statement {
-    padding: 60px 52px;
-    background: linear-gradient(180deg, #0a0806 0%, #0f0c08 50%, #0a0806 100%);
-    border-top: 1px solid #1a1510;
-    border-bottom: 1px solid #1a1510;
+    padding: 120px 48px;
     text-align: center;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-1) 50%, var(--bg) 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
   }
   .statement-ornament {
-    font-size: 11px; letter-spacing: 8px; color: #3a2e18; text-transform: uppercase;
-    margin-bottom: 28px; display: block;
+    font-size: 11px; letter-spacing: 8px; color: #2a2010;
+    text-transform: uppercase; display: block; margin-bottom: 36px;
   }
   .statement-quote {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 28px; font-style: italic; font-weight: 400;
-    color: #d8ccb4; line-height: 1.5; margin-bottom: 24px;
+    font-size: 42px; font-style: italic; font-weight: 400;
+    color: var(--cream); line-height: 1.4;
+    max-width: 700px; margin: 0 auto 28px;
   }
-  .statement-quote em { color: #b8833a; }
+  .statement-quote em { color: var(--gold); }
   .statement-body {
-    font-size: 15px; color: #6a5e44; line-height: 2.0; font-weight: 300;
-    max-width: 400px; margin: 0 auto 36px;
+    font-size: 16px; color: var(--dim); line-height: 2.0; font-weight: 300;
+    max-width: 480px; margin: 0 auto 48px;
   }
 
   /* ─── FOOTER CTA ─── */
   .footer-cta {
-    padding: 52px 40px;
+    padding: 100px 48px;
     text-align: center;
-    background-color: #0c0a07;
-    border-top: 1px solid #141008;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
   }
+  .footer-cta .section-headline { margin-bottom: 20px; }
+  .footer-cta p {
+    font-size: 16px; color: var(--muted); line-height: 1.9; font-weight: 300;
+    max-width: 480px; margin: 0 auto 40px;
+  }
+  .footer-contact-row {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    margin-top: 20px;
+  }
+  .footer-contact-row span { font-size: 11px; color: var(--dim); letter-spacing: 2px; text-transform: uppercase; }
+  .footer-contact-row .dot { color: var(--border-gold); }
 
   /* ─── FOOTER ─── */
-  .footer {
+  .site-footer {
     background: #060504;
-    padding: 30px 40px;
-    text-align: center;
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border-top: 1px solid #100d08;
+    flex-wrap: wrap;
+    gap: 20px;
   }
-  .footer-logo { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-style: italic; color: #2e2818; margin-bottom: 14px; }
-  .footer-links { font-size: 10px; letter-spacing: 2px; color: #262012; text-transform: uppercase; margin-bottom: 12px; }
-  .footer-links a { color: #262012; text-decoration: none; }
-  .footer-links a:hover { color: #7a5a20; }
-  .footer-unsub { font-size: 11px; color: #1e1a10; line-height: 1.65; }
-  .footer-unsub a { color: #262012; text-decoration: underline; }
+  .sf-logo {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px; font-style: italic; color: #2e2818;
+  }
+  .sf-links {
+    display: flex; gap: 24px;
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #262012;
+  }
+  .sf-links a { color: #262012; text-decoration: none; }
+  .sf-links a:hover { color: var(--gold-dark); }
+  .sf-unsub { font-size: 10px; color: #1e1a10; }
+  .sf-unsub a { color: #262012; text-decoration: underline; }
+
+  /* ─── FADE IN ON SCROLL ─── */
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* ─── MOBILE ─── */
-  @media (max-width: 500px) {
-    .header, .hero, .statement, .footer-cta, .footer { padding-left: 20px; padding-right: 20px; }
-    .headline { font-size: 28px; }
-    .statement-quote { font-size: 22px; }
+  @media (max-width: 768px) {
+    .site-header { padding: 16px 20px; }
+    .header-cta { display: none; }
+    .hero-headline { font-size: 38px; }
+    .hero-body { font-size: 15px; }
+    .container { padding: 0 20px; }
+    .section { padding: 64px 0; }
+    .highlights-grid { grid-template-columns: 1fr; }
+    .wines-grid { grid-template-columns: repeat(2, 1fr); }
+    .statement { padding: 72px 20px; }
+    .statement-quote { font-size: 28px; }
+    .footer-cta { padding: 72px 20px; }
+    .site-footer { flex-direction: column; align-items: center; text-align: center; padding: 28px 20px; }
+    .sf-links { justify-content: center; flex-wrap: wrap; gap: 16px; }
+    .urgency-bar { padding: 18px 20px; }
+  }
+  @media (max-width: 480px) {
+    .hero-headline { font-size: 30px; }
     .wines-grid { grid-template-columns: 1fr; }
-    .wines-section, .highlight-section { padding-left: 16px; padding-right: 16px; }
-    .urgency-wrap { padding-left: 16px; padding-right: 16px; }
-    .urgency { flex-direction: column; text-align: center; }
-    .highlight-wine { flex-direction: column; }
-    .hw-bottle { width: 100%; height: 140px; border-right: none; border-bottom: 1px solid #1a1510; }
+    .region-banner { height: 120px; }
+    .rb-title { font-size: 20px; }
   }
 </style>
 </head>
 <body>
-<div class="email-wrapper">
 
-  <!-- ── HEADER ── -->
-  <div class="header">
-    <img
-      class="logo-img"
-      src="logo.svg"
-      alt="Italy's Wine"
-      onerror="this.style.display='none'; document.getElementById('logo-fb').style.display='block';"
-    >
-    <div id="logo-fb" class="logo-fallback"><em>Italy's</em> Wine</div>
-    <div class="logo-sub">Importadora &middot; Distribuição</div>
-    <span class="divider-gold"></span>
-  </div>
+  <!-- ── HEADER FIXO ── -->
+  <header class="site-header" id="siteHeader">
+    <div class="logo-svg-wrap">
+      <!-- Logo Italy's Wine inline SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4887.13 1475.31" aria-label="Italy's Wine">
+        <defs>
+          <style>.ls1,.ls2,.ls3{fill-rule:evenodd}.ls1,.ls4{fill:#fff}.ls2{fill:#d11b1a}.ls5{clip-rule:evenodd;fill:none}.ls3{fill:#2f6f30}.ls6{clip-path:url(#lcp)}</style>
+          <clipPath id="lcp"><path class="ls5" d="M1690.59,9.11l-74.45,151.68c470.58,167.47,1368.89-201.61,1804.43-58.02-442.71-276.08-1245.07,115.22-1729.99-93.66"/></clipPath>
+        </defs>
+        <g>
+          <path class="ls4" d="M4753.15,866.62c0-6.74-2.83-10.07-8.59-10.07-20.47,0-45.49,14.01-75,42.08-29.47,28.07-44.63,53.3-45.41,75.74,15.54-3.33,40.11-17.96,73.73-43.77,36.87-28.07,55.28-49.4,55.28-63.99M4887.13,963.44c0,3.95-16.81,13.19-50.39,27.78-82.77,35.92-142.16,53.88-178.24,53.88-53.26,0-79.85-21.33-79.85-63.99,0-31.4,22.32-63,66.95-94.69,44.67-31.73,87.08-47.59,127.24-47.59,12.29,0,18.41,3.95,18.41,11.79,0,18.95-24.12,45.74-72.5,80.39-38.51,27.37-70.07,46.19-94.61,56.14,2.38,24.58,19.6,36.91,51.58,36.91,30.33,0,81.13-13.89,152.43-41.55,5.75-2.22,21.7-8.84,47.92-19.89,2.47-1.69,4.93-2.55,7.4-2.55s3.66,1.15,3.66,3.37ZM4600.72,963.44c-4.89,9.53-34.85,23.88-89.76,42.95-54.91,19.07-95.47,28.6-121.69,28.6-13.89,0-20.88-3.37-20.88-10.07,0-9,13.52-26.96,40.56-53.88,27.08-26.96,40.56-44.63,40.56-53.06,0-9.54-6.53-14.3-19.69-14.3-19.44,0-58.56,18.25-117.37,54.7-39.95,24.7-75.17,48.58-105.29,71.55-11.47,8.42-20.26,12.66-26.84,12.66-10.64,0-15.95-3.95-15.95-11.79,0-2.26,2.84-7.85,8.59-16.85,19.69-18.49,38.92-37.03,57.78-55.56,28.69-28.07,43.03-47.96,43.03-59.76,0-5.05-2.47-7.6-7.4-7.6-2.47,0-7.36,1.15-14.75,3.37-41.76,21.33-101.22,51.66-178.2,90.95h-8.63c-5.71,0-8.59-.57-8.59-1.68,0-1.69,4.48-4.48,13.48-8.43,57.37-30.86,120.91-64.28,190.53-100.2,9.82-5.59,22.56-8.42,38.14-8.42,16.4,0,24.54,5.05,24.54,15.16,0,11.8-11.63,29.59-35.02,53.47-23.34,23.83-34.97,36.91-34.97,39.12,0,.58.78.86,2.47.86-.86,0,26.55-15.86,82.32-47.55,55.73-31.73,93.41-47.59,113.1-47.59,30.29,0,45.45,7.03,45.45,21.04,0,12.37-13.11,32.55-39.33,60.62-26.22,28.07-39.33,44.06-39.33,48,0,4.48,4.11,6.74,12.25,6.74,15.62,0,45.5-8.14,89.76-24.41,30.33-11.79,53.67-21.62,70.03-29.47,2.47-1.69,4.93-2.55,7.4-2.55s3.7,1.15,3.7,3.37ZM4106.61,963.44c0,3.37-8.14,9-24.54,16.85-63.95,31.44-114.37,47.14-151.2,47.14s-55.32-10.64-55.32-31.97c0-22.48,13.89-48.86,41.8-79.15,18-19.64,35.67-35.34,52.81-47.14,5.75-5.05,14.75-7.6,27.08-7.6,6.53,1.15,9.82,2.55,9.82,4.23,0,.57-14.18,16.85-42.41,48.82-28.27,31.98-42.37,55.56-42.37,70.73,0,17.39,11.05,26.1,32.96,26.1,29.26,0,75.99-16.27,140.35-48.82,2.42-1.69,4.89-2.55,7.36-2.55s3.66,1.15,3.66,3.37ZM4088.2,766.46c0,5.05-4.32,10.23-12.91,15.58-8.59,5.3-16.19,7.97-22.73,7.97-13.15,0-20.1-5.06-20.88-15.12,0-6.74,4.48-12.37,13.48-16.85,6.53-3.95,13.52-5.92,20.88-5.92,14.75,0,22.15,4.77,22.15,14.34ZM3569.47,623.32c0-56.1-27.41-110.26-82.32-162.46-63.95-59.51-142.61-89.26-236.06-89.26-43.36,0-80.88,9.99-112.44,29.88-31.56,19.93-47.34,43.93-47.34,72,0,56.14,32.43,107.47,97.15,154.07,74.51,52.73,169.2,79.11,283.94,79.11,31.15,0,59.8-2.22,86.02-6.74,7.4-24.7,11.06-50.22,11.06-76.6ZM4592.17,468.84c0,4.23-3.33,6.33-9.86,6.33-75.41,0-193.4,44.06-354.01,132.04-196.69,107.06-396.63,251.84-599.86,434.52-13.07,11.8-23.34,17.67-30.7,17.67-.78,0-3.08-.82-6.74-2.51-3.7-1.69-5.59-4.19-5.59-7.56,0-4.52,2.92-10.4,8.67-17.71,14.75-18.49,111-149.55,288.83-393.14,4.11-5.63,8.18-11.22,12.33-16.85-63.99,48.82-128.72,95.14-194.27,138.91-157.32,104.96-306.46,189.7-447.43,254.27-3.25,1.11-18.82,8.96-46.69,23.55-15.58,7.85-25.81,11.8-30.7,11.8-2.47,0-4.11-1.69-4.93-5.06,0-4.48,7.81-10.52,23.34-17.79,13.15-6.74,26.63-13.48,40.56-20.34,86.88-47.88,152.84-91.07,197.88-129.37,63.13-54.17,104.1-111.13,122.96-170.92-27.08,6.17-55.32,9.29-84.87,9.29-112.28,0-207.71-23.18-286.37-69.45-78.7-46.32-117.99-100.61-117.99-162.91,0-39.29,17.18-69.91,51.78-91.77,31.97-19.65,73.81-29.47,125.59-29.47,119.88,0,212.64,29.47,278.39,88.4,55.15,49.93,82.56,110.55,82.56,181.86,0,21.29-3.29,40.93-9.82,58.89,31.15-8.96,78.66-31.97,142.57-69,2.47-1.69,4.56-2.55,6.17-2.55,4.11,0,6.12,2.26,6.12,6.74,0,1.11-.41,2.26-1.19,3.37-49.19,32.55-101.22,55.85-156.13,69.86-22.93,70.73-73.73,136.11-152.39,196.16-.86,1.15-7.4,6.04-19.68,14.75-12.33,8.71-18.41,13.32-18.41,13.89,0,0,13.11-6.74,39.33-20.22,59.84-30.86,147.5-84.46,263.02-160.77,145.07-96.54,242.56-172.61,292.57-228.17,18-20.22,29.88-30.29,35.63-30.29,4.93,1.11,7.36,2.79,7.36,5.05,0,6.7-8.22,18.78-24.58,36.17-13.11,13.48-26.22,26.67-39.33,39.58-94.24,102.7-207.71,253.98-340.49,453.8,108.17-111.13,247.49-223.41,417.92-336.75,221.23-147.62,396.63-221.43,526.09-221.43,8.18.57,12.33,2.96,12.33,7.15ZM3002.82,963.44c0,5.05-16.81,14.3-50.34,27.78-102.5,40.97-182.35,61.48-239.72,61.48-42.58,0-63.91-11.8-63.91-35.38,0-10.65,6.37-19.93,19.03-27.78,12.74-7.85,24-11.8,33.82-11.8,7.36,0,11.06,1.97,11.06,5.92s-4.32,9.41-12.91,16.4c-8.63,7.03-12.9,12.78-12.9,17.26,0,9,6.53,14.88,19.69,17.67,25.4-5.59,53.84-22.27,85.4-50.06,31.56-27.78,47.34-50.38,47.34-67.81,0-14.59-8.59-21.86-25.81-21.86s-36.91,5.34-61.52,15.99c-10.6,5.05-41.75,20.75-93.33,47.14-26.22,13.48-43.89,22.44-52.89,26.96h-8.63c-5.71,0-8.59-.57-8.59-1.68,0-1.69,4.69-4.48,14.18-8.43,9.41-3.95,24.78-11.51,46.07-22.73,31.93-16.27,63.49-32.84,94.65-49.69,40.11-17.96,72.95-26.92,98.35-26.92,31.11,0,46.65,8.67,46.65,26.1,0,48.25-52.44,93.17-157.32,134.68,57.37-1.69,128.22-19.65,212.68-53.88,9-3.37,24.99-10.11,47.92-20.18,2.47-1.69,4.93-2.55,7.4-2.55s3.66,1.15,3.66,3.37ZM2033,1091.42c-233.56,114.5-350.31,229.28-350.31,344.31,0,14.59,6.95,21.91,20.88,21.91,34.27,0,84.87-40.4,151.81-121.24,43.28-52.77,102.41-134.43,177.62-244.98ZM2312.01,963.44c-3.25,7.31-31.11,21.62-83.55,42.95-60.66,24.7-108.58,44.88-143.8,60.62-110.67,152.1-179.47,243.3-206.55,273.58-76.98,89.8-141.7,134.72-194.14,134.72-24.62,0-36.91-10.93-36.91-32.84,0-122.35,133.57-246.95,400.7-373.78l76.2-109.44c0-2.26-1.19-3.37-3.66-3.37,0,0-22.56,11.79-67.6,35.34-45.08,23.59-77.84,35.38-98.35,35.38s-29.47-6.74-29.47-20.1c0-7.85,12.45-27.9,37.48-60.33,24.99-32.26,37.44-51.33,37.44-56.84,0-6.16-7.73-9.25-23.1-9.25-3.53,0-5.14-3.66-5.14-10.81,7.56-1.81,15.33-2.67,23.76-2.67,29.26,0,43.85,5.63,43.85,16.85,0,12.37-11.1,32.55-33.16,60.62-22.15,28.07-33.21,45.74-33.21,53.06,0,4.48,2.84,6.7,8.59,6.7,19.69,0,51.25-11.76,94.6-35.34,49.23-26.92,86.06-55.85,110.68-86.72,12.29-8.42,21.29-12.62,27.04-12.62,10.64,0,15.99,3.66,15.99,10.93,0,3.95-2.92,9-8.59,15.16-31.97,34.24-72.13,84.17-120.5,149.84,43.44-18.49,83.59-34.52,120.5-47.96,40.93-16.32,67.56-27.78,79.85-34.52,2.47-1.69,4.93-2.55,7.4-2.55s3.66,1.15,3.66,3.37ZM2201.42,480.22c0,56.8-38.3,123.74-114.91,200.64-57.95,58.52-130.94,116.47-218.76,173.72-75.21,49.52-119.88,74.22-134.64,74.22,2.42,52.89,26.43,79.28,71.67,79.28,30.13,0,71.72-12.62,125.43-37.77,3.9-2.22,9.58-4.77,16.97-7.68,2.26-1.69,4.73-2.55,7.19-2.55s3.66,1.15,3.66,3.37c0,2.79-6.12,7.31-18.41,13.48-68.84,34.81-121.28,52.19-157.32,52.19-27.08,0-49.4-7.73-67.03-23.14-17.59-15.45-26.43-34.11-26.43-56.02,0-49.36,31.15-115.32,93.45-197.84,58.11-76.89,124.89-145.07,200.35-204.54,80.26-62.88,143.39-94.32,189.29-94.32,19.6,0,29.47,9,29.47,26.96ZM1698.72,963.44c0,6.74-25.4,19.64-76.2,38.71-53.3,20.22-91.4,30.33-114.33,30.33-42.58,0-63.9-15.45-63.9-46.32,0-8.42,6.58-17.96,19.69-28.6,0-.58-.41-.86-1.23-.86.82,0-21.33,11.67-66.37,34.93-45.09,23.3-77.47,34.97-97.07,34.97s-28.31-5.34-28.31-16.03c0-25.81,31.52-55.85,94.65-90.08,59.84-33.08,106.52-49.65,140.14-49.65,4.89.53,10.44,2.22,16.6,5.18,6.12,2.79,9.16,5.06,9.16,6.74,0,.41-.41.99-1.19,1.56-45.91,0-104.51,24.53-175.81,73.77-22.89,15.74-34.36,29.06-34.36,39.87,0,3.95,2.88,5.88,8.59,5.88,18.04,0,52.44-14.3,103.24-42.91,40.97-23.59,70.07-42.37,87.25-56.43,8.22-6.74,13.93-10.11,17.22-10.11,8.22,0,12.29,3.95,12.29,11.67,0,2.79-5.34,9.25-15.94,19.19-35.26,33-52.85,53.92-52.85,62.75,0,15.58,12.66,23.43,38.1,23.43,41.76,0,98.35-16.27,169.61-48.82,2.47-1.69,4.93-2.55,7.4-2.55s3.66,1.15,3.66,3.37ZM1392.62,669.64c0,2.79-1.6,6.16-4.89,10.11-37.69,44.34-89.3,111.42-154.89,201.21,49.15,0,85.24-1.68,108.21-5.05.78,1.69,1.19,3.9,1.19,6.74s-3.25,4.77-9.82,5.88c-16.4,2.26-52.03,3.37-106.93,3.37-44.22,60.62-84,111.7-119.22,153.21-7.4,8.43-13.93,12.62-19.69,12.62-9,0-13.52-3.62-13.52-10.93,0-3.9,2.47-9.82,7.4-17.67,18.82-30.29,32.75-74.39,41.75-132.17-67.98,43.19-129.41,76.03-184.32,98.51-4.15-1.15-6.16-2.55-6.16-4.23,0-3.91,6.16-8.14,18.41-12.62,51.66-22.44,108.58-54.17,170.88-95.14-65.59-10.64-118.81-27.78-159.79-51.37-53.3-30.29-79.93-67.89-79.93-112.81,0-16.81,10.11-32.55,30.12-47.14,20.1-14.59,42.86-21.86,68.22-21.86,45.91,0,84,17.1,114.29,51.33,32.01,36.49,47.96,85.03,47.96,145.65v22.73c62.1-42.66,116.59-85.03,163.86-127.11,19.68-22.44,43.27-49.69,70.93-81.66,2.47,0,5.71,1.11,9.86,3.37,4.07,2.26,6.08,3.95,6.08,5.05ZM1070.63,944.5c0,4.23-7.4,6.33-22.15,6.33-85.19,0-158.18-9-218.76-26.96-147.58,107.76-326.97,161.64-538.42,161.64-55.69,0-109.4-4.48-160.98-13.44C43.44,1056.9,0,1032.49,0,998.83c0-9,7.77-17.43,23.34-25.27,20.51-10.11,49.19-15.16,86.02-15.16,68.06,0,142.98,17.67,224.97,53.06,3.29,3.37,4.89,5.59,4.89,6.74,0,2.79-2.01,4.19-6.08,4.19s-8.22-1.11-12.33-3.37c-65.59-33.12-139.73-49.65-222.46-49.65-13.93,0-27.08,2.51-39.33,7.56-12.29,5.05-18.45,11.8-18.45,20.22,0,51.62,83.55,77.43,250.73,77.43,91.81,0,183.54-13.73,275.35-41.26,91.73-27.49,172.86-65.92,243.38-115.32-136.9-46.6-205.28-139.77-205.28-279.5,0-69.58,25.4-130.77,76.19-183.54,53.3-54.99,118.81-82.48,196.69-82.48,62.22,0,108.99,18.49,140.1,55.4,26.22,31.44,39.33,72.99,39.33,124.48,0,58.77-18.45,119.96-55.28,183.25-37.73,65.51-90.62,124.44-158.59,176.51,56.51,16.81,126.62,25.23,210.21,25.23,11.43,0,17.22,2.38,17.22,7.15Z"/>
+          <path class="ls1" d="M1712.89,34.59l-74.45,151.68c470.58,167.47,1317.38-217.24,1817.42-63.3-442.71-276.08-1258.06,120.5-1742.97-88.38"/>
+          <path class="ls1" d="M1690.59,9.11l-74.45,151.68c470.58,167.47,1368.89-201.61,1804.43-58.02-442.71-276.08-1245.07,115.22-1729.99-93.66"/>
+          <g class="ls6">
+            <polygon class="ls3" points="1643.6 -78.27 2271.04 -78.27 2219.1 243.41 1591.66 243.41 1643.6 -78.27"/>
+            <polygon class="ls2" points="2763.07 -140.03 3390.51 -140.03 3489.57 181.65 2862.13 181.65 2763.07 -140.03"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <a href="#selecao" class="header-cta">Ver Seleção</a>
+  </header>
 
   <!-- ── HERO ── -->
-  <div class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-vignette"></div>
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
-      <span class="kicker">Encerramento de Ciclo &middot; Seleção Especial</span>
-      <h1 class="headline">
+      <span class="hero-kicker">Encerramento de Ciclo &middot; Seleção Especial</span>
+      <h1 class="hero-headline">
         Alguns rótulos têm<br>
         apenas <em>uma última chance.</em>
       </h1>
-      <p class="subheadline">Talvez não voltem mais.</p>
+      <p class="hero-sub">Talvez não voltem mais.</p>
       <p class="hero-body">
-        Uma seleção de rótulos italianos que
-        <strong>encerra seu ciclo no portfólio Italy's Wine.</strong>
-        Sem previsão de retorno. Sem garantias.
-        Para distribuidoras, restaurantes e adegas que entendem
-        que <strong>certas janelas se fecham — e não voltam a abrir.</strong>
+        Uma seleção de rótulos italianos que encerra seu ciclo no portfólio Italy's Wine.
+        Sem previsão de retorno. Para distribuidoras, restaurantes e adegas que entendem que
+        <strong>certas janelas se fecham — e não voltam a abrir.</strong>
       </p>
-      <div class="cta-block">
-        <a href="#" class="btn-primary">Ver Seleção Completa</a>
-        <p class="btn-note">Enquanto existir estoque</p>
+      <div class="hero-cta-wrap">
+        <a href="#selecao" class="btn-gold">Ver Seleção Completa</a>
+        <a href="#consultor" class="btn-outline">Falar com Consultor</a>
       </div>
     </div>
+    <div class="hero-scroll-hint">
+      <span>Rolar</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── URGENCY BAR ── -->
+  <div class="urgency-bar">
+    <span class="icon">🍾</span>
+    <p>
+      <strong>Mais de 100 rótulos</strong> encerrando ciclo agora — Amarones, Barolos, Brunellos e seleções sicilianas.
+      Sem previsão de reposição. <strong>Talvez seja a última vez que você os encontre.</strong>
+    </p>
   </div>
 
-  <!-- ── URGENCY ── -->
-  <div class="urgency-wrap">
-    <div class="urgency">
-      <div class="urgency-icon">🍾</div>
-      <div class="urgency-text">
-        <strong>Mais de 100 rótulos</strong> encerrando ciclo agora —
-        Amarones, Barolos, Brunellos e seleções sicilianas.
-        Sem previsão de reposição.
-        <strong>Talvez seja a última vez que você os encontre.</strong>
+  <!-- ── DESTAQUES ── -->
+  <section class="section" id="selecao">
+    <div class="container">
+      <div class="reveal" style="text-align:center; margin-bottom: 0;">
+        <span class="kicker">Destaques da Seleção</span>
+        <span class="divider-gold" style="margin-top:12px;"></span>
+        <h2 class="section-headline" style="margin-top:16px;">Os rótulos que merecem estar <em>no seu acervo</em></h2>
+      </div>
+
+      <div class="highlights-grid reveal" style="--delay:0.1s">
+
+        <div class="highlight-card">
+          <div class="hc-image-wrap">
+            <img src="../AMARONE%20DELLA%20VALPOLICELLA%20DOCG%20TERRE%20DI%20CASTELNUOVO.png"
+              alt="Amarone della Valpolicella"
+              onerror="this.parentNode.innerHTML='<div class=\'hc-image-ph\'></div>'">
+          </div>
+          <div class="hc-body">
+            <span class="hc-region">Vêneto &middot; Itália</span>
+            <div class="hc-name">Amarone della Valpolicella DOCG<br>Amerigo Vespucci</div>
+            <div class="hc-desc">O rei da Valpolicella, produzido com uvas passificadas. Estrutura monumental, taninos sedosos. Encerra o ciclo no portfólio Italy's — talvez não volte ao mercado brasileiro.</div>
+            <span class="hc-badge">Última oportunidade</span>
+          </div>
+        </div>
+
+        <div class="highlight-card">
+          <div class="hc-image-wrap">
+            <img src="../BAROLO%20DOCG%20BOERI.png"
+              alt="Barolo DOCG"
+              onerror="this.parentNode.innerHTML='<div class=\'hc-image-ph\'></div>'">
+          </div>
+          <div class="hc-body">
+            <span class="hc-region">Piemonte &middot; Itália</span>
+            <div class="hc-name">Barolo DOCG Langates</div>
+            <div class="hc-desc">O vinho dos reis. O rei dos vinhos. Nebbiolo em sua expressão mais nobre, da região mais nobre da Itália. Últimas unidades disponíveis — sem previsão de retorno.</div>
+            <span class="hc-badge">Últimas unidades</span>
+          </div>
+        </div>
+
+        <div class="highlight-card">
+          <div class="hc-image-wrap">
+            <img src="../BRUNELLO%20DI%20MONTALCINO%20DOCG%20COLLE%20DEI%20MEDICI_.png"
+              alt="Brunello di Montalcino"
+              onerror="this.parentNode.innerHTML='<div class=\'hc-image-ph\'></div>'">
+          </div>
+          <div class="hc-body">
+            <span class="hc-region">Toscana &middot; Itália</span>
+            <div class="hc-name">Brunello di Montalcino DOCG<br>Baccio</div>
+            <div class="hc-desc">Um dos grandes vinhos do mundo, encerrando o ciclo no portfólio Italy's. Elegância atemporal que define o melhor da Toscana. Para quem reconhece que certas garrafas não voltam.</div>
+            <span class="hc-badge">Última oportunidade</span>
+          </div>
+        </div>
+
+        <div class="highlight-card">
+          <div class="hc-image-wrap">
+            <img src="../AMARONE%20DELLA%20%20VALPOLICELLA%20DOCG%20%20VINTAGE%20SARTORI.png"
+              alt="Amarone Riserva"
+              onerror="this.parentNode.innerHTML='<div class=\'hc-image-ph\'></div>'">
+          </div>
+          <div class="hc-body">
+            <span class="hc-region">Vêneto &middot; Itália</span>
+            <div class="hc-name">Amarone della Valpolicella Riserva<br>Anticavigna</div>
+            <div class="hc-desc">Mais tempo em barrica. Mais profundidade. Mais raridade. A versão Riserva encerra o ciclo — para compor o acervo premium antes que feche esta janela.</div>
+            <span class="hc-badge">Última oportunidade</span>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-
-  <!-- ── SEÇÃO DESTAQUES ── -->
-  <div class="section-label">
-    <span class="kicker">Destaques da Seleção</span>
-    <div class="section-title">Os rótulos que merecem estar no seu acervo</div>
-    <span class="divider-gold"></span>
-  </div>
-
-  <!-- ── HIGHLIGHT WINES ── -->
-  <div class="highlight-section">
-
-    <!-- Amarone Amerigo Vespucci -->
-    <div class="highlight-wine">
-      <div class="hw-bottle">
-        <img
-          src="../AMARONE%20DELLA%20VALPOLICELLA%20DOCG%20TERRE%20DI%20CASTELNUOVO.png"
-          alt="Amarone della Valpolicella"
-          onerror="this.parentNode.innerHTML='<div class=\'hw-bottle-ph\'></div>'"
-        >
-      </div>
-      <div class="hw-content">
-        <div class="hw-top">
-          <div class="hw-name">Amarone della Valpolicella DOCG<br>Amerigo Vespucci</div>
-          <div class="hw-type">Vêneto &middot; Itália</div>
-        </div>
-        <div class="hw-desc">
-          O rei da Valpolicella produzido com uvas passificadas.
-          Estrutura monumental, taninos sedosos.
-          Encerra o ciclo no portfólio Italy's —
-          talvez não volte ao mercado brasileiro.
-        </div>
-        <span class="hw-badge">Última oportunidade</span>
-      </div>
-    </div>
-
-    <!-- Barolo Langates -->
-    <div class="highlight-wine">
-      <div class="hw-bottle">
-        <img
-          src="../BAROLO%20DOCG%20BOERI.png"
-          alt="Barolo DOCG"
-          onerror="this.parentNode.innerHTML='<div class=\'hw-bottle-ph\'></div>'"
-        >
-      </div>
-      <div class="hw-content">
-        <div class="hw-top">
-          <div class="hw-name">Barolo DOCG Langates</div>
-          <div class="hw-type">Piemonte &middot; Itália</div>
-        </div>
-        <div class="hw-desc">
-          O vinho dos reis. O rei dos vinhos.
-          Nebbiolo em sua expressão mais nobre, da região mais nobre da Itália.
-          Últimas unidades disponíveis — sem previsão de retorno.
-        </div>
-        <span class="hw-badge">Últimas unidades</span>
-      </div>
-    </div>
-
-    <!-- Brunello Baccio -->
-    <div class="highlight-wine">
-      <div class="hw-bottle">
-        <img
-          src="../BRUNELLO%20DI%20MONTALCINO%20DOCG%20COLLE%20DEI%20MEDICI_.png"
-          alt="Brunello di Montalcino"
-          onerror="this.parentNode.innerHTML='<div class=\'hw-bottle-ph\'></div>'"
-        >
-      </div>
-      <div class="hw-content">
-        <div class="hw-top">
-          <div class="hw-name">Brunello di Montalcino DOCG<br>Baccio</div>
-          <div class="hw-type">Toscana &middot; Itália</div>
-        </div>
-        <div class="hw-desc">
-          Um dos grandes vinhos do mundo, encerrando o ciclo no portfólio Italy's.
-          Elegância atemporal que define o melhor da Toscana.
-          Para quem reconhece que certas garrafas não voltam.
-        </div>
-        <span class="hw-badge">Última oportunidade</span>
-      </div>
-    </div>
-
-    <!-- Amarone Riserva Anticavigna -->
-    <div class="highlight-wine">
-      <div class="hw-bottle">
-        <img
-          src="../AMARONE%20DELLA%20%20VALPOLICELLA%20DOCG%20%20VINTAGE%20SARTORI.png"
-          alt="Amarone Riserva"
-          onerror="this.parentNode.innerHTML='<div class=\'hw-bottle-ph\'></div>'"
-        >
-      </div>
-      <div class="hw-content">
-        <div class="hw-top">
-          <div class="hw-name">Amarone della Valpolicella Riserva<br>Anticavigna</div>
-          <div class="hw-type">Vêneto &middot; Itália</div>
-        </div>
-        <div class="hw-desc">
-          Mais tempo em barrica. Mais profundidade. Mais raridade.
-          A versão Riserva encerra o ciclo —
-          para compor o acervo premium antes que feche esta janela.
-        </div>
-        <span class="hw-badge">Última oportunidade</span>
-      </div>
-    </div>
-
-  </div>
+  </section>
 
   <!-- ── REGIONAL BANNER ── -->
   <div class="region-banner">
-    <img class="region-banner-img" src="../258202-Veneto-Italy.webp" alt="Vêneto, Itália">
+    <img src="../258202-Veneto-Italy.webp" alt="Vêneto, Itália">
     <div class="region-banner-overlay">
-      <span class="region-banner-kicker">Regiões da Seleção</span>
-      <div class="region-banner-title">Vêneto &middot; Piemonte &middot; Toscana</div>
+      <span class="rb-kicker">Regiões da Seleção</span>
+      <div class="rb-title">Vêneto &middot; Piemonte &middot; Toscana &middot; Sicília</div>
     </div>
   </div>
 
-  <!-- ── SEÇÃO OUTROS RÓTULOS ── -->
-  <div class="section-label" style="padding-top: 36px;">
-    <span class="kicker">Outros Rótulos em Encerramento de Ciclo</span>
-    <div class="section-title">Uma Itália inteira — pela última vez</div>
-    <span class="divider-gold"></span>
-  </div>
-
-  <div class="wines-section" style="padding-top: 0;">
-    <div class="wines-grid">
-
-      <div class="wine-card">
-        <div class="wine-card-thumb">
-          <img src="barbaresco-terra-dei-savoia.png" alt="Barbaresco"
-            onerror="this.parentNode.innerHTML='<div class=\'wine-card-thumb-ph\'></div>'">
-        </div>
-        <div class="wine-card-body">
-          <span class="wine-region">Piemonte</span>
-          <div class="wine-name">Barbaresco DOCG Terra dei Savoia</div>
-          <span class="wine-badge">Última oportunidade</span>
-        </div>
+  <!-- ── OUTROS RÓTULOS ── -->
+  <section class="section">
+    <div class="container">
+      <div class="reveal" style="text-align:center; margin-bottom:0;">
+        <span class="kicker">Outros Rótulos em Encerramento de Ciclo</span>
+        <span class="divider-gold" style="margin-top:12px;"></span>
+        <h2 class="section-headline" style="margin-top:16px;">Uma Itália inteira — <em>pela última vez</em></h2>
       </div>
 
-      <div class="wine-card">
-        <div class="wine-card-thumb">
-          <img src="../BARBERA%20D%27ASTI%20DOCG%20SUPERIORE%20P%C3%96RLAP%C3%80.png" alt="Barbera d'Asti"
-            onerror="this.parentNode.innerHTML='<div class=\'wine-card-thumb-ph\'></div>'">
-        </div>
-        <div class="wine-card-body">
-          <span class="wine-region">Piemonte</span>
-          <div class="wine-name">Barbera d'Asti DOCG Boeri</div>
-          <span class="wine-badge">Última oportunidade</span>
-        </div>
-      </div>
+      <div class="wines-grid reveal">
 
-      <div class="wine-card">
-        <div class="wine-card-thumb">
-          <img src="mamertino-nero-davola.png" alt="Mamertino"
-            onerror="this.parentNode.innerHTML='<div class=\'wine-card-thumb-ph\'></div>'">
+        <div class="wine-card">
+          <div class="wc-thumb">
+            <img src="barbaresco-terra-dei-savoia.png" alt="Barbaresco"
+              onerror="this.parentNode.innerHTML='<div class=\'wc-thumb-ph\'></div>'">
+          </div>
+          <div class="wc-body">
+            <div class="wc-region">Piemonte</div>
+            <div class="wc-name">Barbaresco DOCG Terra dei Savoia</div>
+            <span class="wc-badge">Última oportunidade</span>
+          </div>
         </div>
-        <div class="wine-card-body">
-          <span class="wine-region">Sicília</span>
-          <div class="wine-name">Mamertino DOC Nero d'Avola</div>
-          <span class="wine-badge">Última oportunidade</span>
-        </div>
-      </div>
 
-      <div class="wine-card">
-        <div class="wine-card-thumb">
-          <img src="../ROSSO%20VENETO%20IGT%20CENTOVENTI%20750ml%20SARTORI%20.png" alt="Valpolicella Ripasso"
-            onerror="this.parentNode.innerHTML='<div class=\'wine-card-thumb-ph\'></div>'">
+        <div class="wine-card">
+          <div class="wc-thumb">
+            <img src="../BARBERA%20D%27ASTI%20DOCG%20SUPERIORE%20P%C3%96RLAP%C3%80.png" alt="Barbera d'Asti"
+              onerror="this.parentNode.innerHTML='<div class=\'wc-thumb-ph\'></div>'">
+          </div>
+          <div class="wc-body">
+            <div class="wc-region">Piemonte</div>
+            <div class="wc-name">Barbera d'Asti DOCG Boeri</div>
+            <span class="wc-badge">Última oportunidade</span>
+          </div>
         </div>
-        <div class="wine-card-body">
-          <span class="wine-region">Vêneto</span>
-          <div class="wine-name">Valpolicella DOC Superiore Ripasso Sartori</div>
-          <span class="wine-badge">Última oportunidade</span>
-        </div>
-      </div>
 
-      <div class="wine-card">
-        <div class="wine-card-thumb">
-          <img src="../MORELLINO%20DI%20SCANSANO%20POGGIO%20ALLE%20SUGHERE.png" alt="Morellino di Scansano"
-            onerror="this.parentNode.innerHTML='<div class=\'wine-card-thumb-ph\'></div>'">
+        <div class="wine-card">
+          <div class="wc-thumb">
+            <img src="mamertino-nero-davola.png" alt="Mamertino"
+              onerror="this.parentNode.innerHTML='<div class=\'wc-thumb-ph\'></div>'">
+          </div>
+          <div class="wc-body">
+            <div class="wc-region">Sicília</div>
+            <div class="wc-name">Mamertino DOC Nero d'Avola</div>
+            <span class="wc-badge">Última oportunidade</span>
+          </div>
         </div>
-        <div class="wine-card-body">
-          <span class="wine-region">Toscana</span>
-          <div class="wine-name">Morellino di Scansano DOCG Montagnana</div>
-          <span class="wine-badge">Últimas caixas</span>
-        </div>
-      </div>
 
-      <div class="wine-card">
-        <div class="wine-card-thumb">
-          <img src="../PRIMITIVO%20DI%20MANDURIA%20DOC%20RISERVA%20CONTE%20DI%20CAMPIANO.png" alt="Primitivo Salento"
-            onerror="this.parentNode.innerHTML='<div class=\'wine-card-thumb-ph\'></div>'">
+        <div class="wine-card">
+          <div class="wc-thumb">
+            <img src="../ROSSO%20VENETO%20IGT%20CENTOVENTI%20750ml%20SARTORI%20.png" alt="Valpolicella Ripasso"
+              onerror="this.parentNode.innerHTML='<div class=\'wc-thumb-ph\'></div>'">
+          </div>
+          <div class="wc-body">
+            <div class="wc-region">Vêneto</div>
+            <div class="wc-name">Valpolicella DOC Superiore Ripasso Sartori</div>
+            <span class="wc-badge">Última oportunidade</span>
+          </div>
         </div>
-        <div class="wine-card-body">
-          <span class="wine-region">Puglia</span>
-          <div class="wine-name">Primitivo Salento IGP Donna Marzia</div>
-          <span class="wine-badge">Última oportunidade</span>
-        </div>
-      </div>
 
-      <div class="wine-card">
-        <div class="wine-card-thumb">
-          <img src="../AIREN%20MACABEO%20ORO%20DEL%20TORO.png" alt="Oro del Toro"
-            onerror="this.parentNode.innerHTML='<div class=\'wine-card-thumb-ph\'></div>'">
+        <div class="wine-card">
+          <div class="wc-thumb">
+            <img src="../MORELLINO%20DI%20SCANSANO%20POGGIO%20ALLE%20SUGHERE.png" alt="Morellino"
+              onerror="this.parentNode.innerHTML='<div class=\'wc-thumb-ph\'></div>'">
+          </div>
+          <div class="wc-body">
+            <div class="wc-region">Toscana</div>
+            <div class="wc-name">Morellino di Scansano DOCG Montagnana</div>
+            <span class="wc-badge">Últimas caixas</span>
+          </div>
         </div>
-        <div class="wine-card-body">
-          <span class="wine-region">Espanha</span>
-          <div class="wine-name">Gran Reserva La Mancha Oro del Toro</div>
-          <span class="wine-badge">Última oportunidade</span>
-        </div>
-      </div>
 
-      <div class="wine-card">
-        <div class="wine-card-thumb">
-          <img src="../LAMBRUSCO%20DELL%20EMILIA%20IGT%20ROSSO%20%20AMERIGO%20VESPUCCI.png" alt="Lambrusco"
-            onerror="this.parentNode.innerHTML='<div class=\'wine-card-thumb-ph\'></div>'">
+        <div class="wine-card">
+          <div class="wc-thumb">
+            <img src="../PRIMITIVO%20DI%20MANDURIA%20DOC%20RISERVA%20CONTE%20DI%20CAMPIANO.png" alt="Primitivo"
+              onerror="this.parentNode.innerHTML='<div class=\'wc-thumb-ph\'></div>'">
+          </div>
+          <div class="wc-body">
+            <div class="wc-region">Puglia</div>
+            <div class="wc-name">Primitivo Salento IGP Donna Marzia</div>
+            <span class="wc-badge">Última oportunidade</span>
+          </div>
         </div>
-        <div class="wine-card-body">
-          <span class="wine-region">Emília-Romanha</span>
-          <div class="wine-name">Lambrusco dell'Emilia IGT Michelangelo</div>
-          <span class="wine-badge">Últimas caixas</span>
-        </div>
-      </div>
 
+        <div class="wine-card">
+          <div class="wc-thumb">
+            <img src="../AIREN%20MACABEO%20ORO%20DEL%20TORO.png" alt="Oro del Toro"
+              onerror="this.parentNode.innerHTML='<div class=\'wc-thumb-ph\'></div>'">
+          </div>
+          <div class="wc-body">
+            <div class="wc-region">Espanha</div>
+            <div class="wc-name">Gran Reserva La Mancha Oro del Toro</div>
+            <span class="wc-badge">Última oportunidade</span>
+          </div>
+        </div>
+
+        <div class="wine-card">
+          <div class="wc-thumb">
+            <img src="../LAMBRUSCO%20DELL%20EMILIA%20IGT%20ROSSO%20%20AMERIGO%20VESPUCCI.png" alt="Lambrusco"
+              onerror="this.parentNode.innerHTML='<div class=\'wc-thumb-ph\'></div>'">
+          </div>
+          <div class="wc-body">
+            <div class="wc-region">Emília-Romanha</div>
+            <div class="wc-name">Lambrusco dell'Emilia IGT Michelangelo</div>
+            <span class="wc-badge">Últimas caixas</span>
+          </div>
+        </div>
+
+      </div>
+      <p class="wines-more reveal">+ mais de 90 outros rótulos na seleção completa</p>
     </div>
-    <p style="font-size: 11px; color: #2e2818; text-align: center; padding-top: 16px; letter-spacing: 1.5px; text-transform: uppercase;">
-      + mais de 90 outros rótulos na seleção completa
-    </p>
-  </div>
+  </section>
 
   <!-- ── STATEMENT ── -->
-  <div class="statement">
-    <span class="statement-ornament">· · ·</span>
-    <p class="statement-quote">
+  <div class="statement reveal">
+    <span class="statement-ornament">&middot; &middot; &middot;</span>
+    <blockquote class="statement-quote">
       "Encerramos este ciclo.<br>
       O que foi, foi.<br>
-      O que <em>resta</em> —<br>
-      é a <em>última chance.</em>"
-    </p>
+      O que <em>resta</em> — é a <em>última chance.</em>"
+    </blockquote>
     <p class="statement-body">
-      Sem previsões. Sem promessas de retorno.
-      Estes rótulos encerram no portfólio Italy's —
-      e com eles, talvez a última oportunidade de tê-los.
+      Sem previsões. Sem promessas de retorno.<br>
       Para quem entende que certas garrafas não voltam.
     </p>
-    <div class="cta-block">
-      <a href="#" class="btn-primary">Compor Minha Seleção</a>
-    </div>
+    <a href="#selecao" class="btn-gold">Compor Minha Seleção</a>
   </div>
 
-  <!-- ── FOOTER CTA ── -->
-  <div class="footer-cta">
-    <h2 class="headline" style="font-size: 26px; margin-bottom: 14px;">
-      Monte a seleção certa<br>
-      <em>antes que feche esta janela.</em>
-    </h2>
-    <p class="hero-body" style="font-size: 14px; margin-bottom: 28px;">
-      Nosso consultor conhece cada rótulo desta seleção.
-      Para o menu, para o acervo, para o cliente que
-      reconhece o que está em mãos.
-    </p>
-    <div class="cta-block">
-      <a href="#" class="btn-ghost">Falar com Consultor</a>
+  <!-- ── CTA CONSULTOR ── -->
+  <section class="footer-cta" id="consultor">
+    <div class="reveal">
+      <span class="kicker">Consultoria Especializada</span>
+      <span class="divider-gold" style="margin-top:12px; margin-bottom:20px;"></span>
+      <h2 class="section-headline">Monte a seleção certa<br><em>antes que feche esta janela.</em></h2>
+      <p>Nosso consultor conhece cada rótulo desta seleção. Para o menu, para o acervo, para o cliente que reconhece o que está em mãos.</p>
+      <a href="#" class="btn-outline">Falar com Consultor</a>
+      <div class="footer-contact-row">
+        <span>WhatsApp</span><span class="dot">&middot;</span>
+        <span>E-mail</span><span class="dot">&middot;</span>
+        <span>Telefone</span>
+      </div>
     </div>
-    <p class="btn-note" style="margin-top: 16px;">WhatsApp &middot; E-mail &middot; Telefone</p>
-  </div>
+  </section>
 
   <!-- ── FOOTER ── -->
-  <div class="footer">
-    <div class="footer-logo">Italy's Wine</div>
-    <div class="footer-links">
-      <a href="#">Catálogo</a> &nbsp;&middot;&nbsp;
-      <a href="#">Sobre Nós</a> &nbsp;&middot;&nbsp;
-      <a href="#">Contato</a> &nbsp;&middot;&nbsp;
+  <footer class="site-footer">
+    <div class="sf-logo">Italy's Wine</div>
+    <div class="sf-links">
+      <a href="#">Catálogo</a>
+      <a href="#">Sobre Nós</a>
+      <a href="#">Contato</a>
       <a href="#">Instagram</a>
     </div>
-    <div class="footer-unsub">
-      Você está recebendo este e-mail como parceiro comercial ou cliente B2B.<br>
-      <a href="#">Descadastrar</a> &middot; Italy's Wine Importadora &middot; São Paulo, Brasil
+    <div class="sf-unsub">
+      Parceiro comercial Italy's Wine &middot; São Paulo, Brasil &middot;
+      <a href="#">Descadastrar</a>
     </div>
-  </div>
+  </footer>
 
-</div>
+<script>
+  // Header scroll effect
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Hero background parallax subtil
+  const heroBg = document.getElementById('heroBg');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    heroBg.style.transform = `scale(1) translateY(${y * 0.3}px)`;
+  });
+  heroBg.classList.add('loaded');
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
